@@ -6,7 +6,7 @@ Hi there welcome to Moxira. This game is built off of Luanti (formerly Minetest)
 ## Legal Status for Me and Terraria.
 As the developers stated, we cannot copy any assets, name, item names, basically anything from Terraria. This idea has to be original. And is. How? We did not copy the name. Assets concepts nor used music Scott Lylod Shelly made (and it's pretty impressive and amazing! >O<)
 
-My status. We is out of the legal trouble state. No reports from the developers.
+My status. We are good!! No reports from the developers.
 
 ## Feature (This is my favorite part!) UoU
 Here is some features listed below! Right now they is concepts and may not be final when the game actually releases.
