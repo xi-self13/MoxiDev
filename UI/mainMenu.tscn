@@ -1,0 +1,121 @@
+[gd_scene load_steps=9 format=3 uid="uid://hjyd1yu5ficr"]
+
+[ext_resource type="Shader" uid="uid://dxmuy7xg75soe" path="res://UI/blur.gdshader" id="1_88dob"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ne5gk"]
+shader = ExtResource("1_88dob")
+shader_parameter/radius = 14.68
+shader_parameter/steps = 32
+shader_parameter/vertex_expand = 1.0
+
+[sub_resource type="Gradient" id="Gradient_fjjcj"]
+colors = PackedColorArray(0.49424517, 1.4018082e-06, 2.4065375e-07, 1, 0.44370762, 0.25707132, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_88dob"]
+gradient = SubResource("Gradient_fjjcj")
+width = 1152
+height = 648
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.2990654, 0.44859812)
+fill_to = Vector2(0.42523363, 0.40706125)
+repeat = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_88dob"]
+bg_color = Color(0.4862745, 0, 0.4, 0.8)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="Gradient" id="Gradient_88dob"]
+colors = PackedColorArray(0.88431376, 7.436201e-06, 7.70092e-07, 1, 0.2899109, 0.0006694025, 0.7338775, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ne5gk"]
+gradient = SubResource("Gradient_88dob")
+width = 536
+height = 608
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.5009815, 0.5)
+fill_to = Vector2(0.6069584, 0.55128205)
+repeat = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_em8oq"]
+font_size = 96
+font_color = Color(1, 0.54124093, 0.4767593, 1)
+outline_size = 5
+outline_color = Color(0.94036186, 5.3425133e-06, 3.85046e-07, 1)
+shadow_size = 8
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(6, 2)
+stacked_outline_count = 3
+stacked_shadow_count = 1
+stacked_outline_0/size = 4
+stacked_outline_0/color = Color(0, 1, 0, 1)
+stacked_outline_1/size = 3
+stacked_outline_1/color = Color(0, 1, 1, 1)
+stacked_outline_2/size = 5
+stacked_outline_2/color = Color(0.5858467, 1.8049031e-06, 4.3317675e-07, 1)
+stacked_shadow_0/offset = Vector2(6, 2)
+stacked_shadow_0/color = Color(0.26666668, 0, 0, 1)
+
+[node name="Main Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_ne5gk")
+texture = SubResource("GradientTexture2D_88dob")
+centered = false
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+clip_children = 2
+clip_contents = true
+layout_mode = 1
+offset_left = 581.0
+offset_top = 10.0
+offset_right = 1137.0
+offset_bottom = 638.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_88dob")
+
+[node name="ButtonBacker" type="TextureRect" parent="PanelContainer"]
+texture_filter = 4
+layout_mode = 2
+texture = SubResource("GradientTexture2D_ne5gk")
+
+[node name="FlowContainer" type="FlowContainer" parent="PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+vertical = true
+
+[node name="Button" type="Button" parent="PanelContainer/FlowContainer"]
+layout_mode = 2
+text = "Start"
+
+[node name="Button2" type="Button" parent="PanelContainer/FlowContainer"]
+layout_mode = 2
+text = "Options"
+
+[node name="Button3" type="Button" parent="PanelContainer/FlowContainer"]
+layout_mode = 2
+text = "Quit"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 220.0
+offset_top = 216.0
+offset_right = 447.0
+offset_bottom = 348.0
+text = "Moxi"
+label_settings = SubResource("LabelSettings_em8oq")
