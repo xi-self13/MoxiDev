@@ -29,7 +29,7 @@ That's all for now.
 ## Inspiration
 * Terraria for all of cool tools and good game mechanics with NPCs.
 * Minecraft for the almost similar 3D version of Terraria.
-* Lunati (Formerly Minetest) for Open Sourced Minecraft (OSMC) and our base to Moxira 
+* Lunati (Formerly Minetest) for Open Sourced Minecraft (OSMC).
 * Vintage Story for the almost real experience and blocky. The character designs is amazing! Player and some NPCs will adopt this style
 * Bloxd.io for the abilty to have a Minecraft alternative but online!!
 
