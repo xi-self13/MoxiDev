@@ -38,5 +38,12 @@ Thanks for inspiring for making this. And providing the base game engine I need!
 
 ## Lore? MMMM...  Not yet.
 
+## Licensing
+
+- **Code:** GNU GPLv3 (see LICENSE)
+- **Assets:** All rights reserved (see ASSETS_LICENSE.md)
+- **Music:** Allowed only with credit to XiStudios Developer Xperience
+
+
                             XiStudios @ 2025 - 27 - 10
                             #           XuO          #
