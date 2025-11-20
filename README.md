@@ -1,7 +1,7 @@
 # Moxira
                     Proceed to read this README.md - XI
 ## Introduction To This Project
-Hi there welcome to Moxira. This game is built off of Luanti (formerly Minetest), this game is gonna be awesome. I may go around and select a few people to be pre-release testers. See the problems. You can even contribute to!! if you like. You can donate at [Xi's Donation Station](https://buymeacoffee.com/xi_self13). Feel free. This game is gonna be awesome!!! >u<. 
+Hi there welcome to Moxira. This game uses Godot 4.x, this game is gonna be awesome. I may go around and select a few people to be pre-release testers. See the problems. You can even contribute to!! if you like. You can donate at [Xi's Donation Station](https://buymeacoffee.com/xi_self13). Feel free. This game is gonna be awesome!!! >u<. 
 
 ## Legal Status for Me and Terraria.
 As the developers stated, we cannot copy any assets, name, item names, basically anything from Terraria. This idea has to be original. And is. How? We did not copy the name. Assets concepts nor used music Scott Lylod Shelly made (and it's pretty impressive and amazing! >O<)
@@ -34,7 +34,7 @@ That's all for now.
 * Bloxd.io for the abilty to have a Minecraft alternative but online!!
 
 
-Thanks for inspiring for making this. And providing the base game engine I need! 
+Thanks for inspiring for making this.
 
 ## Lore? MMMM...  Not yet.
 
