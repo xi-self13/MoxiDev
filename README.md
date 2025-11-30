@@ -36,7 +36,8 @@ That's all for now.
 
 Thanks for inspiring for making this.
 
-## Lore? MMMM...  Not yet.
+## Lore? Yes! 
+You can find the lore for Moxira in our wiki at [Moxira's Lore](https://github.com/xi-self13/MoxiDev/wiki/Moxira%E2%80%99s-Lore)
 
 ## Licensing
 
