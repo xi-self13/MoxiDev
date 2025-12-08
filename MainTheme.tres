@@ -45,3 +45,4 @@ Button/styles/focus = null
 Button/styles/hover = SubResource("StyleBoxFlat_8s18r")
 Button/styles/normal = SubResource("StyleBoxFlat_ne5gk")
 Button/styles/pressed = SubResource("StyleBoxFlat_4as0w")
+Window/fonts/title_font = null

@@ -12,5 +12,10 @@ func _process(_delta: float) -> void:
 
 
 func _on_settings_pressed() -> void:
-	var SettingsWindows : Window = %SettingsWindow
+	var SettingsWindows: Window = %SettingsWindow
 	SettingsWindows.visible = true
+
+
+func _on_settings_window_close_requested() -> void:
+	var SettingsWindows: Window = %SettingsWindow
+	SettingsWindows.visible = false

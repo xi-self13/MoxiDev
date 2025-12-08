@@ -144,11 +144,14 @@ layout_mode = 2
 [node name="SettingsWindow" type="Window" parent="."]
 unique_name_in_owner = true
 oversampling_override = 1.0
+title = "Settings"
 initial_position = 2
 size = Vector2i(500, 500)
 visible = false
+wrap_controls = true
 unresizable = true
 sharp_corners = true
+theme = ExtResource("3_em8oq")
 
 [node name="VScrollBar" type="VScrollBar" parent="SettingsWindow"]
 offset_right = 8.0
@@ -165,3 +168,5 @@ grow_vertical = 2
 layout_mode = 2
 
 [connection signal="pressed" from="ButtonPanelMenuMain/VBoxContainer/Settings" to="ButtonPanelMenuMain" method="_on_settings_pressed"]
+[connection signal="pressed" from="ButtonPanelMenuMain/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="close_requested" from="SettingsWindow" to="ButtonPanelMenuMain" method="_on_settings_window_close_requested"]
