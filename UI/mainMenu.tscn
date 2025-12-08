@@ -167,6 +167,7 @@ grow_vertical = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="SettingsWindow/ScrollContainer"]
 layout_mode = 2
 
+[connection signal="pressed" from="ButtonPanelMenuMain/VBoxContainer/PlayButton" to="ButtonPanelMenuMain" method="_on_play_button_pressed"]
 [connection signal="pressed" from="ButtonPanelMenuMain/VBoxContainer/Settings" to="ButtonPanelMenuMain" method="_on_settings_pressed"]
 [connection signal="pressed" from="ButtonPanelMenuMain/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="close_requested" from="SettingsWindow" to="ButtonPanelMenuMain" method="_on_settings_window_close_requested"]

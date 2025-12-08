@@ -1,4 +1,5 @@
 extends CharacterBody3D
+class_name Player
 
 @export var movement_speed := 5.0
 @export var attack := 10.0

@@ -19,3 +19,7 @@ func _on_settings_pressed() -> void:
 func _on_settings_window_close_requested() -> void:
 	var SettingsWindows: Window = %SettingsWindow
 	SettingsWindows.visible = false
+
+
+func _on_play_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://OtherScenes/sandbox.tscn")

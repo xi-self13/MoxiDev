@@ -18,12 +18,15 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameManager="*res://Globals/game_manager.gd"
-Player="*res://Entities/Player/player.tscn"
 
 [display]
 
 window/stretch/mode="canvas_items"
 mouse_cursor/custom_image="uid://cg4fh8ib2l15x"
+
+[global_group]
+
+Player=""
 
 [input]
 

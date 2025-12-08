@@ -1,19 +1,22 @@
 extends Node
 
+var player := preload("res://Entities/Player/player.tscn")
 func save():
+	if !player:
+		return {"filename" : get_scene_file_path(), "parent" : get_parent().get_path()}
 	var save_dict = {
 		"filename" : get_scene_file_path(),
 		"parent" : get_parent().get_path(),
-		"pos_x" : Player.position.x,
-		"pos_y" : Player.position.y,
-		"movement_speed" : Player.movement_speed,
-		"attack" : Player.attack,
-		"defense" : Player.defence,
-		"current_health" : Player.current_health,
-		"max_health" : Player.max_health,
-		"damage" : Player.damage,
-		"experience" : Player.experience,
-		"level" : Player.level
+		"pos_x" : player.position.x,
+		"pos_y" : player.position.y,
+		"movement_speed" : player.movement_speed,
+		"attack" : player.attack,
+		"defense" : player.defence,
+		"current_health" : player.current_health,
+		"max_health" : player.max_health,
+		"damage" : player.damage,
+		"experience" : player.experience,
+		"level" : player.level
 		}
 	return save_dict
 
