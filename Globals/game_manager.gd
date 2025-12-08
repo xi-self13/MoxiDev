@@ -6,7 +6,7 @@ func save():
 		"parent" : get_parent().get_path(),
 		"pos_x" : Player.position.x,
 		"pos_y" : Player.position.y,
-		"movement_speed" : Player.movement_speed
+		"movement_speed" : Player.movement_speed,
 		"attack" : Player.attack,
 		"defense" : Player.defence,
 		"current_health" : Player.current_health,
@@ -14,7 +14,7 @@ func save():
 		"damage" : Player.damage,
 		"experience" : Player.experience,
 		"level" : Player.level
-	}
+		}
 	return save_dict
 
 func save_game():
