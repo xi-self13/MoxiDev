@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://4ymff2i1wj47"]
+
+[ext_resource type="PackedScene" uid="uid://bbb10ssiukodu" path="res://assets/Player/Model/Girl.fbx" id="1_hd75i"]
+
+[node name="Girl" instance=ExtResource("1_hd75i")]
+
+[node name="Arm2" parent="Girl/Body/Arms" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0.25, 0, 0)
+
+[node name="Hair" parent="Girl/Body/Head" index="0"]
+visible = false

@@ -1,0 +1,33 @@
+[gd_resource type="ArrayMesh" load_steps=3 format=4 uid="uid://frbsw6c1bncg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4v7g1"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_yi3u1"]
+_surfaces = [{
+"aabb": AABB(-0.25, 0, -0.25, 0.5, 0.0625, 0.5),
+"format": 34359742465,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAgABAAMAAwABAAAAAgAEAAAAAAAFAAMABQAAAAQAAwAGAAIABgADAAUABAACAAYABQAHAAYABgAHAAQABAAHAAUA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AACAPgAAAAAAAIA+AACAPgAAgD0AAIA+AACAPgAAgD0AAIC+AACAvgAAgD0AAIA+AACAPgAAAAAAAIC+AACAvgAAAAAAAIA+AACAvgAAgD0AAIC+AACAvgAAAAAAAIC+")
+}]
+blend_shape_mode = 0
+
+[resource]
+resource_name = "cuboid_8"
+_surfaces = [{
+"aabb": AABB(-0.25, 0, -0.25, 0.5, 0.0625, 0.5),
+"attribute_data": PackedByteArray("AAAAAAAAgD4AAAAAAAAAAAAAAD8AAAAAAAAAPwAAgD4AAAAAAAAAAAAAAD8AAAAAAAAAPwAAgD4AAAAAAACAPgAAAD8AAAAAAAAAPwAAAD8AAAAAAAAAPwAAAAAAAAAAAAAAAAAAAAAAAAA/AAAAAAAAAD8AAAA/AAAAAAAAAD8AAAAAAAAAAAAAAD8AAAAAAAAAPwAAgD4AAAAAAACAPgAAAAAAAIA+AAAAAAAAAAAAAAA/AAAAAAAAAD8AAIA+"),
+"format": 34359742487,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAAFAAYABgAHAAQACAAJAAoACgALAAgADAANAA4ADgAPAAwAEAARABIAEgATABAAFAAVABYAFgAXABQA"),
+"material": SubResource("StandardMaterial3D_4v7g1"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AACAPgAAAAAAAIA+AACAPgAAgD0AAIA+AACAPgAAgD0AAIC+AACAPgAAAAAAAIC+AACAvgAAgD0AAIC+AACAvgAAgD0AAIA+AACAvgAAAAAAAIA+AACAvgAAAAAAAIC+AACAPgAAgD0AAIC+AACAPgAAgD0AAIA+AACAvgAAgD0AAIA+AACAvgAAgD0AAIC+AACAvgAAAAAAAIA+AACAPgAAAAAAAIA+AACAPgAAAAAAAIC+AACAvgAAAAAAAIC+AACAvgAAgD0AAIA+AACAPgAAgD0AAIA+AACAPgAAAAAAAIA+AACAvgAAAAAAAIA+AACAPgAAAAAAAIC+AACAPgAAgD0AAIC+AACAvgAAgD0AAIC+AACAvgAAAAAAAIC+////f/////////9//////////3//////////f/////8AAP9//3//vwAA/3//f/+/AAD/f/9//78AAP9//3//v/9///////+//3///////7//f///////v/9///////+//38AAP///7//fwAA////v/9/AAD///+//38AAP///7//f/9/////v/9//3////+//3//f////7//f/9/////v/////8AAP+//////wAA/7//////AAD/v/////8AAP+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_yi3u1")

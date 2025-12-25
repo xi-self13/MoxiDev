@@ -26,6 +26,7 @@ class_name Player
 @onready var camera_3d: Camera3D = $Camera3D
 @onready var cameraStartPos: Vector3 = $Camera3D.position
 @onready var start_fov := camera_3d.fov
+@onready var diedscreen = $YouDied
 
 var zoom_multiplier := 0.7
 var target_mouse_motion: Vector2 = Vector2.ZERO
@@ -77,7 +78,6 @@ func _physics_process(delta: float) -> void:
 		movement_speed = 2
 		camera_3d.fov = lerp(camera_3d.fov, start_fov, delta * 30)
 		is_crouching = true
-
 	elif !$RayCast3D.is_colliding():
 		$Camera3D.position.y = lerp($Camera3D.position.y, start_cam, 0.25)
 		$CollisionShape3D.scale.y = lerp($CollisionShape3D.scale.y, start_coll, 0.25)
@@ -85,9 +85,12 @@ func _physics_process(delta: float) -> void:
 			movement_speed = 5
 		is_crouching = false
 	# OnDied!
-	if current_health < 0:
-		print("x-x")
-		self.position = Vector3(0, 0, 0)
+	if current_health == 0:
+		diedscreen.diedtype = "unknown"
+		diedscreen.visible = true
+	else: 
+		diedscreen.visible = false
+		
 	# Sprint
 	if !Input.is_action_pressed("crouch") and Input.is_action_pressed("sprint") and !is_crouching:
 		movement_speed = lerp(movement_speed, startSpeed * runMulti, 0.2)
@@ -140,11 +143,6 @@ func camera_rotation() -> void:
 	$Camera3D.rotation_degrees.x = clamp($Camera3D.rotation_degrees.x, -90.0, 90.0)
 	target_mouse_motion = Vector2.ZERO
 	head.rotation = $Camera3D.rotation
-	
-
-
-
-
 func _on_body_entered(body: Player) -> void:
 	if body:
 		current_health = 0
@@ -169,6 +167,7 @@ func _on_pov_selected(index: int) -> void:
 
 func _on_mobile_ui_pressed_killplayer() -> void:
 	current_health = 0
+	print(str(current_health))
 
 
 func _on_kill_plsettings() -> void:

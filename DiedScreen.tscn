@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4h2lyh67xg8t"]
+
+[ext_resource type="Script" uid="uid://clcivdskc0c6t" path="res://Globals/player_death_mang.gd" id="1_56tvm"]
+
+[node name="YouDied" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_56tvm")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DiedDescriptor" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
+offset_top = 176.0
+offset_right = 279.0
+offset_bottom = 338.0
+
+[node name="Reload" type="Button" parent="Panel"]
+layout_mode = 0
+anchor_right = 0.986111
+anchor_bottom = 0.0941358
+text = "Reload…"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Panel/Reload" to="." method="_on_pressedreload"]

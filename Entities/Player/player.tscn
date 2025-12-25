@@ -1,13 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://cso1gt3072mb5"]
+[gd_scene load_steps=6 format=3 uid="uid://cso1gt3072mb5"]
 
 [ext_resource type="Script" uid="uid://bl7ulvedi5jkb" path="res://Entities/Player/player.gd" id="1_tcnsb"]
 [ext_resource type="PackedScene" uid="uid://4ymff2i1wj47" path="res://assets/Player/Model/girl.tscn" id="3_lu8i8"]
 [ext_resource type="Script" uid="uid://semsmbohlmwu" path="res://UI/scripts/mobileuicontrols.gd" id="3_tekja"]
+[ext_resource type="PackedScene" uid="uid://c4h2lyh67xg8t" path="res://DiedScreen.tscn" id="4_tekja"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5c2io"]
 size = Vector3(1, 2.53882, 0.541931)
 
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
+wall_min_slide_angle = 0.262093
 script = ExtResource("1_tcnsb")
 jump_height = 2.0
 
@@ -169,6 +171,9 @@ text = "Kill yourself….."
 
 [node name="Girl" parent="." instance=ExtResource("3_lu8i8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.619829, 0.0694482)
+
+[node name="YouDied" parent="." instance=ExtResource("4_tekja")]
+visible = false
 
 [connection signal="button_down" from="MobileUi/JoyArea/Forward" to="MobileUi" method="_on_forward_down"]
 [connection signal="button_up" from="MobileUi/JoyArea/Forward" to="MobileUi" method="_on_forward_up"]

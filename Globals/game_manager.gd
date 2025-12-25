@@ -1,6 +1,6 @@
 extends Node
 
-var player := preload("res://Entities/Player/player.tscn")
+var player :=  preload("res://Entities/Player/player.tscn")
 func save():
 	if !player:
 		return {"filename" : get_scene_file_path(), "parent" : get_parent().get_path()}

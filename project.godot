@@ -75,11 +75,22 @@ crouch={
 ]
 }
 
+[input_devices]
+
+pointing/android/enable_long_press_as_right_click=true
+pointing/android/enable_pan_and_scale_gestures=true
+pointing/emulate_touch_from_mouse=true
+
+[internationalization]
+
+locale/include_text_server_data=true
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=3
 renderer/rendering_method="forward_plus"
 textures/default_filters/use_nearest_mipmap_filter=true
+viewport/hdr_2d=true
 2d/snap/snap_2d_transforms_to_pixel=true
 
 [xogot]
@@ -90,8 +101,9 @@ project/editorState=[{
 "path": "res://UI/scripts/mobileuicontrols.gd",
 "type": "file"
 }, {
-"column": 48,
-"line": 169,
+"column": 23,
+"current": true,
+"line": 87,
 "path": "res://Entities/Player/player.gd",
 "type": "file"
 }, {
@@ -106,16 +118,11 @@ project/editorState=[{
 "type": "file"
 }, {
 "column": 0,
-"current": true,
-"line": 16,
-"path": "res://Globals/player_death_mang.gd",
-"type": "file"
-}, {
-"column": 0,
 "line": 0,
-"path": "res://README.md",
+"path": "res://Globals/player_death_mang.gd",
 "type": "file"
 }]
 project/breakpoints={
+"res://Globals/player_death_mang.gd": PackedInt32Array(),
 "res://UI/scripts/mobileuicontrols.gd": PackedInt32Array()
 }
