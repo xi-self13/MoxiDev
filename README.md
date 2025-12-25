@@ -1,5 +1,5 @@
 # Moxira
-                    Proceed to read this README.md - XI
+					Proceed to read this README.md - XI
 ## Introduction To This Project
 Hi there welcome to Moxira. This game uses Godot 4.x, this game is gonna be awesome. I may go around and select a few people to be pre-release testers. See the problems. You can even contribute to!! if you like. You can donate at [Xi's Donation Station](https://buymeacoffee.com/xi_self13). Feel free. This game is gonna be awesome!!! >u<. 
 
@@ -46,5 +46,5 @@ You can find the lore for Moxira in our wiki at [Moxira's Lore](https://github.c
 - **Music:** Allowed only with credit to XiStudios Developer Xperience
 
 
-                            XiStudios @ 2025 - 27 - 10
-                            #           XuO          #
+							XiStudios @ 2025 - 27 - 10
+							#           XuO          #

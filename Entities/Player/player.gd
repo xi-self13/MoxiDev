@@ -1,6 +1,7 @@
 extends CharacterBody3D
 class_name Player
 
+@export_category("Player Body Config")
 @export var movement_speed := 5.0
 @export var attack := 10.0
 @export var defence := 10.0
@@ -15,12 +16,18 @@ class_name Player
 @export var coyote_time: float = 0.1
 @export var mouse_sensitivity: float = 0.003
 @export var mouse_smoothing_speed: float = 12.0
+@export_category("Player Profile")
+@export var username : String = "Jaly"
+@export var display_name : String = "Jaly Ki"
 
+@onready var areaofdeath = %Area3D
+@onready var head = $Girl/Girl/Body/Head
+@onready var ap: AnimationPlayer = $Girl/AnimationPlayer
 @onready var camera_3d: Camera3D = $Camera3D
 @onready var cameraStartPos: Vector3 = $Camera3D.position
 @onready var start_fov := camera_3d.fov
-var zoom_multiplier := 0.7
 
+var zoom_multiplier := 0.7
 var target_mouse_motion: Vector2 = Vector2.ZERO
 var mouse_motion: Vector2 = Vector2.ZERO
 var coyote_jump_timer: float = 0.0
@@ -38,15 +45,19 @@ func _ready() -> void:
 	start_coll = $CollisionShape3D.scale.y
 
 func _physics_process(delta: float) -> void:
+	if ap.current_animation == "":
+		ap.current_animation = "Idle1"
 	if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
 		return
-
 	mouse_motion = mouse_motion.lerp(target_mouse_motion, mouse_smoothing_speed * delta)
-	camera_rotation()
+	# camera_rotation()
+	if rotcam:
+		camera_rotation()
 
 	# Gravity & falling
 	if not is_on_floor():
 		if velocity.y >= 0:
+			ap.current_animation = "Falling"
 			velocity += get_gravity() * delta
 		else:
 			velocity += get_gravity() * delta * 0.5 * fall_multi
@@ -73,7 +84,10 @@ func _physics_process(delta: float) -> void:
 		if !Input.is_action_pressed("sprint"):
 			movement_speed = 5
 		is_crouching = false
-
+	# OnDied!
+	if current_health < 0:
+		print("x-x")
+		self.position = Vector3(0, 0, 0)
 	# Sprint
 	if !Input.is_action_pressed("crouch") and Input.is_action_pressed("sprint") and !is_crouching:
 		movement_speed = lerp(movement_speed, startSpeed * runMulti, 0.2)
@@ -81,7 +95,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		camera_3d.fov = lerp(camera_3d.fov, start_fov, delta * 30)
 		movement_speed = lerp(movement_speed, 5.0, 0.2)
-
+	
 	# Jump
 	if jump_buffered and (is_on_floor() or coyote_jump_timer > 0.0):
 		velocity.y = sqrt(jump_height * 2 * -get_gravity().y)
@@ -95,7 +109,10 @@ func _physics_process(delta: float) -> void:
 	if direction:
 		time_passed += delta * 6.0
 		$Camera3D.position.y = cameraStartPos.y + sin(time_passed) * 0.1
-
+		if Input.is_action_pressed("sprint"):
+			ap.current_animation = "Run"
+		else: 
+			ap.current_animation = "Walkbasic"
 		velocity.x = direction.x * movement_speed
 		velocity.z = direction.z * movement_speed
 	else:
@@ -122,3 +139,38 @@ func camera_rotation() -> void:
 	$Camera3D.rotate_x(mouse_motion.y)
 	$Camera3D.rotation_degrees.x = clamp($Camera3D.rotation_degrees.x, -90.0, 90.0)
 	target_mouse_motion = Vector2.ZERO
+	head.rotation = $Camera3D.rotation
+	
+
+
+
+
+func _on_body_entered(body: Player) -> void:
+	if body:
+		current_health = 0
+@onready var ap1 = $Camera3D
+signal rotcam
+
+# TODO! Fix this to where first person camera rotates
+# but in third person not!
+func _on_pov_selected(index: int) -> void:
+	
+	if index == 0:
+		# Third Person
+		ap1.rotation = Vector3(-0, 22.6, 0)
+		ap1.position = Vector3(2, 1.32, 2.11)
+	
+	elif index == 1:
+		# First Person
+		ap1.position = Vector3(0, 1.86, 1)
+		ap1.rotation = Vector3(0,0,0)
+		rotcam.emit()
+
+
+func _on_mobile_ui_pressed_killplayer() -> void:
+	current_health = 0
+
+
+func _on_kill_plsettings() -> void:
+	var c = $MobileUi/PanelContainer
+	c.visible = false

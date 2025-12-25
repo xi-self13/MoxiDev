@@ -16,7 +16,9 @@ func save():
 		"max_health" : player.max_health,
 		"damage" : player.damage,
 		"experience" : player.experience,
-		"level" : player.level
+		"level" : player.level,
+		"uname" : player.username,
+		"dname" : player.displayname
 		}
 	return save_dict
 

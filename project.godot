@@ -10,9 +10,13 @@ config_version=5
 
 [application]
 
-config/name="MoxiDev"
+config/name="Moxira"
+config/description="The best future game on the block…"
+config/version="o0.o1"
 run/main_scene="uid://hjyd1yu5ficr"
-config/features=PackedStringArray("4.5", "Forward Plus")
+config/features=PackedStringArray("4.4", "Forward Plus")
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/image="res://assets/Image_140.png"
 config/icon="res://icon.svg"
 
 [autoload]
@@ -21,6 +25,7 @@ GameManager="*res://Globals/game_manager.gd"
 
 [display]
 
+window/size/mode=2
 window/stretch/mode="canvas_items"
 mouse_cursor/custom_image="uid://cg4fh8ib2l15x"
 
@@ -73,4 +78,44 @@ crouch={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=3
+renderer/rendering_method="forward_plus"
 textures/default_filters/use_nearest_mipmap_filter=true
+2d/snap/snap_2d_transforms_to_pixel=true
+
+[xogot]
+
+project/editorState=[{
+"column": 0,
+"line": 0,
+"path": "res://UI/scripts/mobileuicontrols.gd",
+"type": "file"
+}, {
+"column": 48,
+"line": 169,
+"path": "res://Entities/Player/player.gd",
+"type": "file"
+}, {
+"column": 0,
+"line": 0,
+"path": "res://Globals/game_manager.gd",
+"type": "file"
+}, {
+"column": 0,
+"line": 0,
+"path": "res://UI/scripts/main_menu.gd",
+"type": "file"
+}, {
+"column": 0,
+"current": true,
+"line": 16,
+"path": "res://Globals/player_death_mang.gd",
+"type": "file"
+}, {
+"column": 0,
+"line": 0,
+"path": "res://README.md",
+"type": "file"
+}]
+project/breakpoints={
+"res://UI/scripts/mobileuicontrols.gd": PackedInt32Array()
+}

@@ -9,7 +9,7 @@ font_size = 80
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_em8oq"]
-bg_color = Color(0.21568628, 0.36862746, 0.91764706, 1)
+bg_color = Color(0.215686, 0.368627, 0.917647, 1)
 corner_radius_top_left = 60
 corner_radius_top_right = 60
 corner_radius_bottom_right = 60
@@ -26,6 +26,7 @@ grow_vertical = 2
 script = ExtResource("1_ne5gk")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 z_index = -5
 layout_mode = 1
 anchors_preset = 15
@@ -34,7 +35,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(0.4627451, 0.7647059, 0.94509804, 1)
+color = Color(0.462745, 0.764706, 0.945098, 1)
 
 [node name="HeaderBar" type="Panel" parent="."]
 self_modulate = Color(1, 1, 1, 0)
@@ -101,6 +102,14 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Play"
 
+[node name="ShowSaveDir" type="Button" parent="ButtonPanelMenuMain/VBoxContainer"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+theme = ExtResource("3_em8oq")
+theme_override_font_sizes/font_size = 24
+disabled = true
+text = "Show Save Dir"
+
 [node name="Settings" type="Button" parent="ButtonPanelMenuMain/VBoxContainer"]
 custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
@@ -118,14 +127,14 @@ text = "Quit
 [node name="ButtonContent" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.47700003
-anchor_top = 0.21000001
-anchor_right = 0.97200006
-anchor_bottom = 0.95500004
-offset_left = -95.50403
-offset_top = -0.08000183
-offset_right = 19.255981
-offset_bottom = 0.15997314
+anchor_left = 0.477
+anchor_top = 0.21
+anchor_right = 0.972
+anchor_bottom = 0.955
+offset_left = -95.504
+offset_top = -0.0800018
+offset_right = 19.256
+offset_bottom = 0.159973
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_em8oq")
@@ -143,7 +152,6 @@ layout_mode = 2
 
 [node name="SettingsWindow" type="Window" parent="."]
 unique_name_in_owner = true
-oversampling_override = 1.0
 title = "Settings"
 initial_position = 2
 size = Vector2i(500, 500)
@@ -168,6 +176,7 @@ grow_vertical = 2
 layout_mode = 2
 
 [connection signal="pressed" from="ButtonPanelMenuMain/VBoxContainer/PlayButton" to="ButtonPanelMenuMain" method="_on_play_button_pressed"]
+[connection signal="pressed" from="ButtonPanelMenuMain/VBoxContainer/ShowSaveDir" to="." method="_on_showsdir_h"]
 [connection signal="pressed" from="ButtonPanelMenuMain/VBoxContainer/Settings" to="ButtonPanelMenuMain" method="_on_settings_pressed"]
 [connection signal="pressed" from="ButtonPanelMenuMain/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="close_requested" from="SettingsWindow" to="ButtonPanelMenuMain" method="_on_settings_window_close_requested"]

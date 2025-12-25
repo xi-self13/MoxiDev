@@ -1,18 +1,190 @@
-[gd_scene load_steps=3 format=3 uid="uid://cso1gt3072mb5"]
+[gd_scene load_steps=5 format=3 uid="uid://cso1gt3072mb5"]
 
 [ext_resource type="Script" uid="uid://bl7ulvedi5jkb" path="res://Entities/Player/player.gd" id="1_tcnsb"]
+[ext_resource type="PackedScene" uid="uid://4ymff2i1wj47" path="res://assets/Player/Model/girl.tscn" id="3_lu8i8"]
+[ext_resource type="Script" uid="uid://semsmbohlmwu" path="res://UI/scripts/mobileuicontrols.gd" id="3_tekja"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3uyv8"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_5c2io"]
+size = Vector3(1, 2.53882, 0.541931)
 
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
 script = ExtResource("1_tcnsb")
+jump_height = 2.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("CapsuleShape3D_3uyv8")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.651001, 0.00332642)
+shape = SubResource("BoxShape3D_5c2io")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -0.25)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.40986, 0)
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 target_position = Vector3(0, 0.2, 0)
+
+[node name="MobileUi" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_tekja")
+metadata/_edit_lock_ = true
+
+[node name="JoyArea" type="Control" parent="MobileUi"]
+anchors_preset = 0
+offset_right = 260.0
+offset_bottom = 208.0
+
+[node name="Forward" type="Button" parent="MobileUi/JoyArea"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.45
+anchor_top = 1.98558
+anchor_right = 0.75
+anchor_bottom = 2.27885
+offset_top = 1.14441e-05
+offset_bottom = -2.28882e-05
+metadata/_edit_use_anchors_ = true
+
+[node name="Crouch" type="Button" parent="MobileUi/JoyArea"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.45
+anchor_top = 2.27885
+anchor_right = 0.75
+anchor_bottom = 2.57212
+offset_top = -2.28882e-05
+toggle_mode = true
+text = "C"
+metadata/_edit_use_anchors_ = true
+
+[node name="Backwards" type="Button" parent="MobileUi/JoyArea"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.45
+anchor_top = 2.57212
+anchor_right = 0.75
+anchor_bottom = 2.86538
+metadata/_edit_use_anchors_ = true
+
+[node name="Left" type="Button" parent="MobileUi/JoyArea"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.161538
+anchor_top = 2.27885
+anchor_right = 0.461538
+anchor_bottom = 2.57212
+offset_top = -2.28882e-05
+metadata/_edit_use_anchors_ = true
+
+[node name="Right" type="Button" parent="MobileUi/JoyArea"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.75
+anchor_top = 2.27885
+anchor_right = 1.05
+anchor_bottom = 2.57212
+offset_top = -2.28882e-05
+offset_right = 1.23978e-05
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprint" type="Button" parent="MobileUi/JoyArea"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 3.59615
+anchor_top = 2.34615
+anchor_right = 3.89615
+anchor_bottom = 2.63942
+offset_left = 2.86102e-05
+offset_top = 2.28882e-05
+offset_right = -2.09808e-05
+offset_bottom = -1.14441e-05
+toggle_mode = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprint2" type="Button" parent="MobileUi/JoyArea"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 3.59615
+anchor_top = 2.02885
+anchor_right = 3.89615
+anchor_bottom = 2.32212
+offset_left = 2.86102e-05
+offset_top = 2.28882e-05
+offset_right = -2.09808e-05
+offset_bottom = -1.14441e-05
+text = "^"
+metadata/_edit_use_anchors_ = true
+
+[node name="POV" type="OptionButton" parent="MobileUi"]
+visible = false
+layout_mode = 0
+offset_right = 260.0
+offset_bottom = 44.0
+selected = 1
+item_count = 2
+popup/item_0/text = "3rd person"
+popup/item_0/id = 0
+popup/item_1/text = "1st person"
+popup/item_1/id = 1
+
+[node name="Psettings" type="Button" parent="MobileUi"]
+layout_mode = 0
+anchor_right = 0.190972
+anchor_bottom = 0.0941358
+text = "Player Settings"
+metadata/_edit_use_anchors_ = true
+
+[node name="PanelContainer" type="Panel" parent="MobileUi"]
+visible = false
+layout_mode = 0
+offset_right = 715.0
+offset_bottom = 648.0
+
+[node name="Bye" type="Button" parent="MobileUi/PanelContainer"]
+layout_mode = 0
+offset_right = 24.0
+offset_bottom = 20.0
+text = "X"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MobileUi/PanelContainer"]
+visible = false
+layout_mode = 0
+offset_right = 715.0
+offset_bottom = 648.0
+
+[node name="Scrollh" type="HBoxContainer" parent="MobileUi/PanelContainer/ScrollContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="Kill" type="Button" parent="MobileUi/PanelContainer"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 120.0
+offset_right = 261.0
+offset_bottom = 181.0
+text = "Kill yourself….."
+
+[node name="Girl" parent="." instance=ExtResource("3_lu8i8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.619829, 0.0694482)
+
+[connection signal="button_down" from="MobileUi/JoyArea/Forward" to="MobileUi" method="_on_forward_down"]
+[connection signal="button_up" from="MobileUi/JoyArea/Forward" to="MobileUi" method="_on_forward_up"]
+[connection signal="toggled" from="MobileUi/JoyArea/Crouch" to="MobileUi" method="_on_crouch_toggled"]
+[connection signal="button_down" from="MobileUi/JoyArea/Backwards" to="MobileUi" method="_on_backward_down"]
+[connection signal="button_up" from="MobileUi/JoyArea/Backwards" to="MobileUi" method="_on_backward_up"]
+[connection signal="button_down" from="MobileUi/JoyArea/Left" to="MobileUi" method="_on_left_down"]
+[connection signal="button_up" from="MobileUi/JoyArea/Left" to="MobileUi" method="_on_left_up"]
+[connection signal="button_down" from="MobileUi/JoyArea/Right" to="MobileUi" method="_on_right_down"]
+[connection signal="button_up" from="MobileUi/JoyArea/Right" to="MobileUi" method="_on_right_up"]
+[connection signal="toggled" from="MobileUi/JoyArea/Sprint" to="MobileUi" method="_on_sprint_toggled"]
+[connection signal="button_down" from="MobileUi/JoyArea/Sprint2" to="MobileUi" method="_on_jump_down"]
+[connection signal="button_up" from="MobileUi/JoyArea/Sprint2" to="MobileUi" method="_on_jump_up"]
+[connection signal="item_selected" from="MobileUi/POV" to="." method="_on_pov_selected"]
+[connection signal="pressed" from="MobileUi/Psettings" to="MobileUi" method="_on_plsettings_pressed"]
+[connection signal="mouse_exited" from="MobileUi/PanelContainer" to="MobileUi" method="_on_focus_exited_pset"]
+[connection signal="button_down" from="MobileUi/PanelContainer/Bye" to="." method="_on_kill_plsettings"]
+[connection signal="pressed" from="MobileUi/PanelContainer/Bye" to="MobileUi" method="_on_kill_plsettings"]
+[connection signal="pressed" from="MobileUi/PanelContainer/Kill" to="." method="_on_mobile_ui_pressed_killplayer"]
