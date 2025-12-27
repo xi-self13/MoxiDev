@@ -146,13 +146,13 @@ project/editorState=[{
 "title": "JSON",
 "type": "doc"
 }, {
-"column": 0,
-"line": 30,
+"column": 8,
+"current": true,
+"line": 35,
 "path": "res://UI/scripts/chat_panel.gd",
 "type": "file"
 }, {
-"column": 13,
-"current": true,
+"column": 0,
 "line": 17,
 "path": "res://UI/scripts/edit_profile.gd",
 "type": "file"

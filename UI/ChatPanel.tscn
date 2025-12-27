@@ -4,11 +4,6 @@
 [ext_resource type="Theme" uid="uid://c6kfohpuvyxhm" path="res://assets/DefaultSweetAndOldTheme.tres" id="2_rr71g"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_rx27s"]
-blend_mode = 3
-particles_animation = true
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
 
 [node name="ChatPanel" type="Control"]
 layout_mode = 3

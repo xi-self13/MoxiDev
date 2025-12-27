@@ -29,15 +29,15 @@ func run_command(command_name : String):
 		ChatOutput.newline()
 	else:
 		ChatOutput.append_text("(Error) Not a valid command silly... (tried to use: " + command_name + ") but failed...")
+		ChatOutput.newline()
 
 
 func _on_text_submitted(new_text: String) -> void:
-	if commandPrefix in ChatInput.text:
+	if "/" in ChatInput.text:
 		run_command(new_text)
 	else:
 		ChatOutput.append_text("< Unknown data user > " + new_text)
 		ChatOutput.newline()
-	ChatInput.text = ""
 
 
 func _on_pressed() -> void:
