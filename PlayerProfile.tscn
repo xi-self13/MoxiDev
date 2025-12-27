@@ -1,0 +1,54 @@
+[gd_scene load_steps=2 format=3 uid="uid://h3l5dag7bs0"]
+
+[ext_resource type="Script" uid="uid://dhdpjaomij8uy" path="res://UI/scripts/edit_profile.gd" id="1_ddvty"]
+
+[node name="EditProfile" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ddvty")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 457.0
+offset_bottom = 648.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
+layout_mode = 2
+offset_left = 54.0
+offset_top = 61.0
+offset_right = 412.0
+offset_bottom = 583.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer"]
+custom_minimum_size = Vector2(333, 11111)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "The save button is all the way down there for some reason :( 
+TODO for Freewave: Fix it if possible."
+fit_content = true
+
+[node name="Username" type="LineEdit" parent="Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "janny"
+placeholder_text = "username"
+
+[node name="Bio" type="TextEdit" parent="Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.04
+text = "Hi! And I’m a cute lil person"
+placeholder_text = "Bio"
+
+[node name="Save" type="Button" parent="Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Button"
+
+[connection signal="pressed" from="Panel/ScrollContainer/VBoxContainer/Save" to="." method="_on_pressed"]

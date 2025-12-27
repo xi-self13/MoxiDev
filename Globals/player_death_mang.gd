@@ -17,11 +17,10 @@ extends Control
 }
 @export var diedtype : String
 @onready var description = $Panel/DiedDescriptor
-func _process(_delta: float) -> void:
+func died() -> void:
 	if player.current_health == 0:
 		if diedtype == "unknown":
-			description.text = range(messages.get("unknown")[randi_range(0, 4)]) 
-			
+			description.text = messages.get("unknown")[4]
 
 
 
@@ -29,4 +28,7 @@ func _process(_delta: float) -> void:
 
 
 func _on_pressedreload() -> void:
-	get_tree().reload_current_scene()
+	self.visible = false
+	player.position = Vector3(0, 3, 0)
+	player.current_health = 100
+	player.movement_speed = 5.0

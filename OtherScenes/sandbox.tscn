@@ -1,19 +1,25 @@
-[gd_scene load_steps=10 format=3 uid="uid://gvoyffts6jn6"]
+[gd_scene load_steps=13 format=3 uid="uid://gvoyffts6jn6"]
 
+[ext_resource type="Environment" uid="uid://dcod41koxlfcm" path="res://assets/mainmenu.env.tresa.tres" id="1_xtyrc"]
 [ext_resource type="PackedScene" uid="uid://cso1gt3072mb5" path="res://Entities/Player/player.tscn" id="1_ymirs"]
+[ext_resource type="Script" uid="uid://2wostwiavm55" path="res://Globals/time.gd" id="3_341mu"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ymirs"]
-sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
-ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+[sub_resource type="GDScript" id="GDScript_341mu"]
+resource_name = "Sun"
+script/source = "extends DirectionalLight3D
 
-[sub_resource type="Sky" id="Sky_xtyrc"]
-sky_material = SubResource("ProceduralSkyMaterial_ymirs")
+# TODO! Remove this file and make an actual time system T_T
 
-[sub_resource type="Environment" id="Environment_341mu"]
-background_mode = 2
-sky = SubResource("Sky_xtyrc")
-tonemap_mode = 2
-glow_enabled = true
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void: pass
+	#self.rotation += Vector3(3, 2, 4) / 5000
+	
+"
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ursbn"]
 size = Vector2(50, 50)
@@ -31,14 +37,35 @@ points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ymirs"]
 size = Vector3(12.565, 1.71631, 11.6957)
 
+[sub_resource type="TorusMesh" id="TorusMesh_xtyrc"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_341mu"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_uo8pk"]
+
 [node name="Sandbox" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_341mu")
+environment = ExtResource("1_xtyrc")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866025, -0.12941, 0.482963, 0, 0.965926, 0.258819, -0.5, 0.224144, -0.836516, 0, 0, 0)
+transform = Transform3D(-0.866025, -0.12941, 0.482963, 0.446599, 0.234135, 0.863556, -0.224831, 0.963553, -0.144973, 0, 0, 0)
+light_energy = 0.915
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+light_specular = 5.688
 shadow_enabled = true
+shadow_bias = 0.0
+shadow_normal_bias = 2.223
+shadow_transmittance_bias = 16.0
+shadow_blur = 0.0
+directional_shadow_split_1 = 0.049
+directional_shadow_split_2 = 0.011
+directional_shadow_split_3 = 0.662
+directional_shadow_fade_start = 0.0
+directional_shadow_max_distance = 24.8
+directional_shadow_pancake_size = 318.4
+script = SubResource("GDScript_341mu")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
@@ -61,6 +88,8 @@ shape = SubResource("ConvexPolygonShape3D_xtyrc")
 [node name="Player" parent="." instance=ExtResource("1_ymirs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
+[node name="WorldEnvironment2" type="WorldEnvironment" parent="."]
+
 [node name="Area3D" type="Area3D" parent="."]
 unique_name_in_owner = true
 transform = Transform3D(1.11846, 0, 0, 0, 1.11846, 0, 0, 0, 1.11846, 0, -26.847, 0)
@@ -68,5 +97,32 @@ transform = Transform3D(1.11846, 0, 0, 0, 1.11846, 0, 0, 0, 1.11846, 0, -26.847,
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(4.97115, 0, 0, 0, 4.97115, 0, 0, 0, 4.97115, 0.728004, -0.358154, 7.70057)
 shape = SubResource("BoxShape3D_ymirs")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.00582, 0, 0)
+
+[node name="TorusMesh" type="MeshInstance3D" parent="StaticBody3D2"]
+mesh = SubResource("TorusMesh_xtyrc")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.8539, 2.50968, 0)
+
+[node name="SphereMesh" type="MeshInstance3D" parent="RigidBody3D"]
+mesh = SubResource("SphereMesh_341mu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("SphereShape3D_uo8pk")
+
+[node name="Time" type="Node" parent="." node_paths=PackedStringArray("sun_node")]
+script = ExtResource("3_341mu")
+sun_node = NodePath("../DirectionalLight3D")
+
+[node name="Times" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = 367.0
+offset_top = 587.0
+offset_right = 769.0
+offset_bottom = 644.0
+text = "Label"
 
 [connection signal="body_entered" from="Area3D" to="Player" method="_on_body_entered"]

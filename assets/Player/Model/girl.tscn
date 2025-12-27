@@ -9,3 +9,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0.25, 0, 0)
 
 [node name="Hair" parent="Girl/Body/Head" index="0"]
 visible = false
+
+[node name="AnimationPlayer" parent="." index="2"]
+speed_scale = 1.004

@@ -43,7 +43,7 @@ You can find the lore for Moxira in our wiki at [Moxira's Lore](https://github.c
 
 - **Code:** GNU GPLv3 (see LICENSE)
 - **Assets:** All rights reserved (see ASSETS_LICENSE.md)
-- **Music:** Allowed only with credit to XiStudios Developer Xperience
+- **Music:** Allowed only with credit to XiStudios Developer Xperience & Artur (either must be specified)
 
 
 							XiStudios @ 2025 - 27 - 10

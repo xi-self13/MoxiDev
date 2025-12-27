@@ -16,8 +16,8 @@ config/version="o0.o1"
 run/main_scene="uid://hjyd1yu5ficr"
 config/features=PackedStringArray("4.4", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
-boot_splash/image="res://assets/Image_140.png"
-config/icon="res://icon.svg"
+boot_splash/image="res://assets/Splash.png"
+config/icon="res://assets/AppIcon.png"
 
 [autoload]
 
@@ -74,11 +74,20 @@ crouch={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194326,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 ]
 }
+temporary_controls.dev.flashlight={
+"deadzone": 0.5,
+"events": Array[InputEvent]([])
+}
 
 [input_devices]
 
 pointing/android/enable_long_press_as_right_click=true
 pointing/android/enable_pan_and_scale_gestures=true
+pointing/ios/enable_pan_and_scale_gestures=true
+sensors/enable_accelerometer=true
+sensors/enable_gravity=true
+sensors/enable_gyroscope=true
+sensors/enable_magnetometer=true
 pointing/emulate_touch_from_mouse=true
 
 [internationalization]
@@ -87,23 +96,24 @@ locale/include_text_server_data=true
 
 [rendering]
 
-textures/canvas_textures/default_texture_filter=3
 renderer/rendering_method="forward_plus"
 textures/default_filters/use_nearest_mipmap_filter=true
 viewport/hdr_2d=true
+anti_aliasing/quality/msaa_2d=3
+anti_aliasing/quality/msaa_3d=3
+anti_aliasing/quality/screen_space_aa=1
 2d/snap/snap_2d_transforms_to_pixel=true
 
 [xogot]
 
 project/editorState=[{
 "column": 0,
-"line": 0,
+"line": 80,
 "path": "res://UI/scripts/mobileuicontrols.gd",
 "type": "file"
 }, {
-"column": 23,
-"current": true,
-"line": 87,
+"column": 0,
+"line": 0,
 "path": "res://Entities/Player/player.gd",
 "type": "file"
 }, {
@@ -118,11 +128,45 @@ project/editorState=[{
 "type": "file"
 }, {
 "column": 0,
-"line": 0,
+"line": 33,
 "path": "res://Globals/player_death_mang.gd",
 "type": "file"
+}, {
+"title": "AnimationPlayer",
+"type": "doc"
+}, {
+"title": "AnimationMixer",
+"type": "doc"
+}, {
+"column": 0,
+"line": 0,
+"path": "res://Globals/time.gd",
+"type": "file"
+}, {
+"title": "JSON",
+"type": "doc"
+}, {
+"column": 0,
+"line": 30,
+"path": "res://UI/scripts/chat_panel.gd",
+"type": "file"
+}, {
+"column": 13,
+"current": true,
+"line": 17,
+"path": "res://UI/scripts/edit_profile.gd",
+"type": "file"
+}, {
+"title": "FileAccess",
+"type": "doc"
 }]
 project/breakpoints={
 "res://Globals/player_death_mang.gd": PackedInt32Array(),
+"res://Globals/time.gd": PackedInt32Array(),
 "res://UI/scripts/mobileuicontrols.gd": PackedInt32Array()
 }
+
+[xr]
+
+openxr/enabled=true
+shaders/enabled=true

@@ -1,9 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://cso1gt3072mb5"]
+[gd_scene load_steps=8 format=3 uid="uid://cso1gt3072mb5"]
 
 [ext_resource type="Script" uid="uid://bl7ulvedi5jkb" path="res://Entities/Player/player.gd" id="1_tcnsb"]
+[ext_resource type="PackedScene" uid="uid://ig6os7vu8cal" path="res://UI/ChatPanel.tscn" id="3_5c2io"]
 [ext_resource type="PackedScene" uid="uid://4ymff2i1wj47" path="res://assets/Player/Model/girl.tscn" id="3_lu8i8"]
 [ext_resource type="Script" uid="uid://semsmbohlmwu" path="res://UI/scripts/mobileuicontrols.gd" id="3_tekja"]
 [ext_resource type="PackedScene" uid="uid://c4h2lyh67xg8t" path="res://DiedScreen.tscn" id="4_tekja"]
+
+[sub_resource type="JSON" id="JSON_tekja"]
+data = ""
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5c2io"]
 size = Vector3(1, 2.53882, 0.541931)
@@ -12,13 +16,30 @@ size = Vector3(1, 2.53882, 0.541931)
 wall_min_slide_angle = 0.262093
 script = ExtResource("1_tcnsb")
 jump_height = 2.0
+user_save_file = SubResource("JSON_tekja")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.651001, 0.00332642)
 shape = SubResource("BoxShape3D_5c2io")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.40986, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.37787, -0.293867)
+fov = 80.0
+near = 0.133
+far = 3999.63
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00145406, 0.480771, -0.0400997)
+light_energy = 1.465
+light_indirect_energy = 1.57
+light_volumetric_fog_energy = 0.0
+light_size = 0.233
+light_specular = 0.308
+shadow_enabled = true
+shadow_reverse_cull_face = true
+spot_range = 37.3421
+spot_attenuation = 1.71
+spot_angle = 36.819
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -34,6 +55,24 @@ grow_vertical = 2
 script = ExtResource("3_tekja")
 metadata/_edit_lock_ = true
 
+[node name="Stats" type="Control" parent="MobileUi"]
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 51.0
+
+[node name="Healthbar" type="ProgressBar" parent="MobileUi/Stats"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -170.0
+offset_top = -51.0
+offset_right = 160.0
+grow_horizontal = 2
+grow_vertical = 0
+
 [node name="JoyArea" type="Control" parent="MobileUi"]
 anchors_preset = 0
 offset_right = 260.0
@@ -48,6 +87,19 @@ anchor_right = 0.75
 anchor_bottom = 2.27885
 offset_top = 1.14441e-05
 offset_bottom = -2.28882e-05
+metadata/_edit_use_anchors_ = true
+
+[node name="Flashlight" type="Button" parent="MobileUi/JoyArea"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 3.59615
+anchor_top = 1.625
+anchor_right = 3.89615
+anchor_bottom = 1.91827
+offset_top = 1.14441e-05
+offset_bottom = -2.28882e-05
+toggle_mode = true
+text = "F"
 metadata/_edit_use_anchors_ = true
 
 [node name="Crouch" type="Button" parent="MobileUi/JoyArea"]
@@ -132,6 +184,15 @@ popup/item_0/id = 0
 popup/item_1/text = "1st person"
 popup/item_1/id = 1
 
+[node name="ChatButton" type="Button" parent="MobileUi"]
+layout_mode = 0
+anchor_left = 0.352431
+anchor_top = 0.0941358
+anchor_right = 0.451389
+anchor_bottom = 0.188272
+text = "Chat"
+metadata/_edit_use_anchors_ = true
+
 [node name="Psettings" type="Button" parent="MobileUi"]
 layout_mode = 0
 anchor_right = 0.190972
@@ -169,6 +230,18 @@ offset_right = 261.0
 offset_bottom = 181.0
 text = "Kill yourself….."
 
+[node name="Minus20health" type="Button" parent="MobileUi/PanelContainer"]
+layout_mode = 0
+offset_left = 284.0
+offset_top = 120.0
+offset_right = 398.0
+offset_bottom = 181.0
+text = "-10 health"
+
+[node name="ChatPanel" parent="MobileUi" instance=ExtResource("3_5c2io")]
+visible = false
+layout_mode = 1
+
 [node name="Girl" parent="." instance=ExtResource("3_lu8i8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.619829, 0.0694482)
 
@@ -177,6 +250,7 @@ visible = false
 
 [connection signal="button_down" from="MobileUi/JoyArea/Forward" to="MobileUi" method="_on_forward_down"]
 [connection signal="button_up" from="MobileUi/JoyArea/Forward" to="MobileUi" method="_on_forward_up"]
+[connection signal="toggled" from="MobileUi/JoyArea/Flashlight" to="MobileUi" method="_on_flashlight_toggle"]
 [connection signal="toggled" from="MobileUi/JoyArea/Crouch" to="MobileUi" method="_on_crouch_toggled"]
 [connection signal="button_down" from="MobileUi/JoyArea/Backwards" to="MobileUi" method="_on_backward_down"]
 [connection signal="button_up" from="MobileUi/JoyArea/Backwards" to="MobileUi" method="_on_backward_up"]
@@ -188,8 +262,10 @@ visible = false
 [connection signal="button_down" from="MobileUi/JoyArea/Sprint2" to="MobileUi" method="_on_jump_down"]
 [connection signal="button_up" from="MobileUi/JoyArea/Sprint2" to="MobileUi" method="_on_jump_up"]
 [connection signal="item_selected" from="MobileUi/POV" to="." method="_on_pov_selected"]
+[connection signal="pressed" from="MobileUi/ChatButton" to="MobileUi" method="_on_chat_panel_pressed"]
 [connection signal="pressed" from="MobileUi/Psettings" to="MobileUi" method="_on_plsettings_pressed"]
 [connection signal="mouse_exited" from="MobileUi/PanelContainer" to="MobileUi" method="_on_focus_exited_pset"]
 [connection signal="button_down" from="MobileUi/PanelContainer/Bye" to="." method="_on_kill_plsettings"]
 [connection signal="pressed" from="MobileUi/PanelContainer/Bye" to="MobileUi" method="_on_kill_plsettings"]
 [connection signal="pressed" from="MobileUi/PanelContainer/Kill" to="." method="_on_mobile_ui_pressed_killplayer"]
+[connection signal="pressed" from="MobileUi/PanelContainer/Minus20health" to="MobileUi" method="_on_player_pressed"]

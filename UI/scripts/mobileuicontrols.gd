@@ -1,9 +1,17 @@
 extends Control
 
 @onready var psetpanel = $PanelContainer
+@onready var player = $"../"
 # Called when the node enters the scene tree for the first time.
+
+# Shows this ui if its either Android or iOS
 func _ready() -> void:
-	pass # Replace with function body.
+	print("(Server): Mobile Controls Enabled")
+	print("Running on " + str(OS.get_distribution_name()))
+	if OS.get_distribution_name() == "iOS" or OS.get_distribution_name() == "Android":
+		self.visible = true
+	else: 
+		self.visible = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -56,3 +64,18 @@ func _on_kill_plsettings() -> void:
 
 
 
+
+
+func _on_flashlight_toggle(toggled_on: bool) -> void:
+	if toggled_on == true:
+		Input.action_press("temporary_controls.dev.flashlight")
+	elif toggled_on == false:
+		Input.action_release("temporary_controls.dev.flashlight")
+
+
+func _on_player_pressed() -> void:
+	player.current_health -= 5
+
+
+func _on_chat_panel_pressed() -> void:
+	$ChatPanel.visible = true

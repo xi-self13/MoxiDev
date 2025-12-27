@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=3 uid="uid://ig6os7vu8cal"]
+
+[ext_resource type="Script" uid="uid://dwv5p3ephbms7" path="res://UI/scripts/chat_panel.gd" id="1_s4k4u"]
+[ext_resource type="Theme" uid="uid://c6kfohpuvyxhm" path="res://assets/DefaultSweetAndOldTheme.tres" id="2_rr71g"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_rx27s"]
+blend_mode = 3
+particles_animation = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[node name="ChatPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s4k4u")
+
+[node name="ChatInput" type="LineEdit" parent="."]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 0.0941358
+placeholder_text = "Chat and run commands"
+metadata/_edit_use_anchors_ = true
+
+[node name="ChatOutput" type="RichTextLabel" parent="."]
+material = SubResource("CanvasItemMaterial_rx27s")
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.0941358
+anchor_right = 0.877604
+anchor_bottom = 0.978395
+offset_right = -2.28882e-05
+offset_bottom = 1.09673e-05
+theme = ExtResource("2_rr71g")
+bbcode_enabled = true
+scroll_following = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Bye" type="Button" parent="."]
+layout_mode = 0
+anchor_left = 0.892361
+anchor_top = 0.185185
+anchor_right = 0.991319
+anchor_bottom = 0.958333
+offset_right = 3.05176e-05
+offset_bottom = 1.28746e-05
+text = "Close"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="text_submitted" from="ChatInput" to="." method="_on_text_submitted"]
+[connection signal="pressed" from="Bye" to="." method="_on_pressed"]
