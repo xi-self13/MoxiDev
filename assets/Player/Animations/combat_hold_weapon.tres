@@ -1,4 +1,4 @@
-[gd_resource type="Animation" format=3 uid="uid://4q41oswcffe8"]
+[gd_resource type="Animation" load_steps=0 format=3 uid="uid://4q41oswcffe8"]
 
 [resource]
 resource_name = "combat_hold_weapon"
@@ -9,7 +9,7 @@ tracks/0/enabled = true
 tracks/0/path = NodePath("Girl/Torso")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.16667, 1, 0, -0.0436194, 0, 0.999048)
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.16667, 1, 0, -0.043619387, 0, 0.99904823)
 tracks/1/type = "position_3d"
 tracks/1/imported = true
 tracks/1/enabled = true
@@ -23,7 +23,7 @@ tracks/2/enabled = true
 tracks/2/path = NodePath("Girl/Body/Arms/Arm")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
-tracks/2/keys = PackedFloat32Array(0, 1, -0.0100311, -0.0216244, -0.010324, 0.999663, 0.0333333, 1, -0.0059669, -0.0129996, -0.00614427, 0.999879, 0.08333, 1, 0, 0, 0, 1, 0.1, 1, 0.105524, -0.0522353, -0.00453973, 0.993033, 0.133333, 1, 0.30544, -0.15535, 0.0198872, 0.939243, 0.16667, 1, 0.478771, -0.243802, 0.0869714, 0.838913)
+tracks/2/keys = PackedFloat32Array(0, 1, -0.010031064, -0.021624368, -0.010324047, 0.9996625, 0.033333335, 1, -0.0059668953, -0.012999569, -0.006144269, 0.9998788, 0.08333, 1, 0, 0, 0, 1, 0.1, 1, 0.105524234, -0.052235343, -0.0045397296, 0.99303347, 0.13333334, 1, 0.30543998, -0.15535004, 0.019887168, 0.93924296, 0.16667, 1, 0.47877136, -0.24380189, 0.08697137, 0.8389128)
 tracks/3/type = "position_3d"
 tracks/3/imported = true
 tracks/3/enabled = true
@@ -37,7 +37,7 @@ tracks/4/enabled = true
 tracks/4/path = NodePath("Girl/Body/Arms/Arm2")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
-tracks/4/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.04167, 1, 0.381227, -0.0805214, -0.0333531, 0.920364, 0.0666667, 1, 0.376477, -0.0428724, -0.125237, 0.91692, 0.125, 1, 0.386878, 0.0462933, -0.327424, 0.860799)
+tracks/4/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.04167, 1, 0.3812272, -0.080521405, -0.03335306, 0.9203639, 0.06666667, 1, 0.37647724, -0.04287241, -0.12523738, 0.91692007, 0.12499999, 1, 0.38687828, 0.046293337, -0.32742426, 0.8607993)
 tracks/5/type = "rotation_3d"
 tracks/5/imported = true
 tracks/5/enabled = true

@@ -110,7 +110,7 @@ grow_vertical = 2
 script = ExtResource("2_em8oq")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="ButtonPanelMenuMain"]
-layout_mode = 2
+layout_mode = 0
 offset_left = -189.0
 offset_top = -51.0
 offset_right = -5.0

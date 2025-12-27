@@ -2,7 +2,7 @@
 
 [ext_resource type="Material" uid="uid://cs8cg2v5s0khc" path="res://assets/Player/Materials/Arms1.tres" id="1_006kd"]
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_006kd"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_y4gk3"]
 _surfaces = [{
 "aabb": AABB(-0.25, -0.6875, -0.125, 0.25, 0.75, 0.25),
 "format": 34359742465,
@@ -32,4 +32,4 @@ _surfaces = [{
 "vertex_data": PackedByteArray("AAAAAAAAML8AAAA+AAAAAAAAgD0AAAA+AAAAAAAAgD0AAAC+AAAAAAAAML8AAAC+AACAvgAAgD0AAAC+AACAvgAAgD0AAAA+AACAvgAAML8AAAA+AACAvgAAML8AAAC+AAAAAAAAgD0AAAC+AAAAAAAAgD0AAAA+AACAvgAAgD0AAAA+AACAvgAAgD0AAAC+AACAvgAAML8AAAA+AAAAAAAAML8AAAA+AAAAAAAAML8AAAC+AACAvgAAML8AAAC+AACAvgAAgD0AAAA+AAAAAAAAgD0AAAA+AAAAAAAAML8AAAA+AACAvgAAML8AAAA+AAAAAAAAML8AAAC+AAAAAAAAgD0AAAC+AACAvgAAgD0AAAC+AACAvgAAML8AAAC+////f/////////9//////////3//////////f/////8AAP9//3//vwAA/3//f/+/AAD/f/9//78AAP9//3//v/9///////+//3///////7//f///////v/9///////+//38AAP///7//fwAA////v/9/AAD///+//38AAP///7//f/9/////v/9//3////+//3//f////7//f/9/////v/////8AAP+//////wAA/7//////AAD/v/////8AAP+/")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_006kd")
+shadow_mesh = SubResource("ArrayMesh_y4gk3")

@@ -14,7 +14,7 @@ config/name="Moxira"
 config/description="The best future game on the block…"
 config/version="o0.o1"
 run/main_scene="uid://hjyd1yu5ficr"
-config/features=PackedStringArray("4.4", "Forward Plus")
+config/features=PackedStringArray("4.5", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/image="res://assets/Splash.png"
 config/icon="res://assets/AppIcon.png"
@@ -76,19 +76,20 @@ crouch={
 }
 temporary_controls.dev.flashlight={
 "deadzone": 0.5,
-"events": Array[InputEvent]([])
+"events": Array[InputEvent]([Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":70,"key_label":0,"unicode":102,"location":0,"echo":false,"script":null)
+])
 }
 
 [input_devices]
 
 pointing/android/enable_long_press_as_right_click=true
 pointing/android/enable_pan_and_scale_gestures=true
-pointing/ios/enable_pan_and_scale_gestures=true
 sensors/enable_accelerometer=true
 sensors/enable_gravity=true
 sensors/enable_gyroscope=true
 sensors/enable_magnetometer=true
 pointing/emulate_touch_from_mouse=true
+pointing/ios/enable_pan_and_scale_gestures=true
 
 [internationalization]
 
@@ -96,7 +97,6 @@ locale/include_text_server_data=true
 
 [rendering]
 
-renderer/rendering_method="forward_plus"
 textures/default_filters/use_nearest_mipmap_filter=true
 viewport/hdr_2d=true
 anti_aliasing/quality/msaa_2d=3

@@ -1,4 +1,4 @@
-[gd_resource type="Animation" format=3 uid="uid://cyrbhd54wqe5y"]
+[gd_resource type="Animation" load_steps=0 format=3 uid="uid://cyrbhd54wqe5y"]
 
 [resource]
 resource_name = "Falling"
@@ -16,7 +16,7 @@ tracks/1/enabled = true
 tracks/1/path = NodePath("Girl/Body/Arms/Arm")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.25, 1, 0.990274, 0.108453, -0.00948837, 0.0866377)
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.24999999, 1, 0.99027365, 0.1084526, -0.009488375, 0.086637706)
 tracks/2/type = "position_3d"
 tracks/2/imported = true
 tracks/2/enabled = true
@@ -30,7 +30,7 @@ tracks/3/enabled = true
 tracks/3/path = NodePath("Girl/Body/Arms/Arm2")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
-tracks/3/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.25, 1, 0.990274, -0.0866377, 0.00948838, 0.108453)
+tracks/3/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.24999999, 1, 0.99027365, -0.08663771, 0.009488376, 0.10845259)
 tracks/4/type = "rotation_3d"
 tracks/4/imported = true
 tracks/4/enabled = true
@@ -41,14 +41,21 @@ tracks/4/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
 tracks/5/type = "rotation_3d"
 tracks/5/imported = true
 tracks/5/enabled = true
-tracks/5/path = NodePath("Girl/Body/Legs/Leg")
+tracks/5/path = NodePath("Girl/Body/Head")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
 tracks/6/type = "rotation_3d"
 tracks/6/imported = true
 tracks/6/enabled = true
-tracks/6/path = NodePath("Girl/Body/Legs/Leg2")
+tracks/6/path = NodePath("Girl/Body/Legs/Leg")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+tracks/7/type = "rotation_3d"
+tracks/7/imported = true
+tracks/7/enabled = true
+tracks/7/path = NodePath("Girl/Body/Legs/Leg2")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
