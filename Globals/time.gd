@@ -1,5 +1,4 @@
 extends Node
-class_name TimeManager
 # note to Freewave, set this as a global as my editor (Xogot) cannot perform this action due to payment.
 # - XiLy
 @export_category("Sun Properties")
@@ -22,6 +21,7 @@ func time_get(): pass
 	#var sun_rot = int(sun_node.rotation)
 
 func start_day_night(timespeed : float):
+	if !sun_node: return
 	var m = 0.0
 	m += (timespeed + seconds)
 	sun_node.rotation += Vector3(1,7,2) / m * (timespeed * 2)
@@ -30,6 +30,7 @@ func start_day_night(timespeed : float):
 	return v
 
 func _process(_delta: float) -> void:
-	var r = start_day_night(1000)
+	var r = start_day_night(500)
 	var l = %Times
-	l.text = str(r)
+	if l and r:
+		l.text = str(r)

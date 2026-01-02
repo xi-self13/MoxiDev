@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://gvoyffts6jn6"]
+[gd_scene load_steps=14 format=3 uid="uid://gvoyffts6jn6"]
 
 [ext_resource type="Environment" uid="uid://dcod41koxlfcm" path="res://assets/mainmenu.env.tresa.tres" id="1_xtyrc"]
 [ext_resource type="PackedScene" uid="uid://cso1gt3072mb5" path="res://Entities/Player/player.tscn" id="1_ymirs"]
@@ -38,6 +38,9 @@ points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 
 size = Vector3(12.565, 1.71631, 11.6957)
 
 [sub_resource type="TorusMesh" id="TorusMesh_xtyrc"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_341mu"]
+bounce = 0.08
 
 [sub_resource type="SphereMesh" id="SphereMesh_341mu"]
 
@@ -106,6 +109,7 @@ mesh = SubResource("TorusMesh_xtyrc")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.8539, 2.50968, 0)
+physics_material_override = SubResource("PhysicsMaterial_341mu")
 
 [node name="SphereMesh" type="MeshInstance3D" parent="RigidBody3D"]
 mesh = SubResource("SphereMesh_341mu")

@@ -22,6 +22,8 @@ config/icon="res://assets/AppIcon.png"
 [autoload]
 
 GameManager="*res://Globals/game_manager.gd"
+TimeManager="*res://Globals/time.gd"
+PlayerDeathManager="*res://Globals/player_death_mang.gd"
 
 [display]
 
