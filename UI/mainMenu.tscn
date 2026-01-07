@@ -1,9 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://hjyd1yu5ficr"]
+[gd_scene load_steps=11 format=3 uid="uid://hjyd1yu5ficr"]
 
 [ext_resource type="Script" uid="uid://b0nt03vf770do" path="res://UI/scripts/main_menu.gd" id="1_ne5gk"]
 [ext_resource type="Script" uid="uid://8u72n6rr6i2b" path="res://UI/scripts/button_panel_menu_main.gd" id="2_em8oq"]
 [ext_resource type="Theme" uid="uid://nd1oq4ue7ubn" path="res://MainTheme.tres" id="3_em8oq"]
-[ext_resource type="PackedScene" uid="uid://cso1gt3072mb5" path="res://Entities/Player/player.tscn" id="4_j0q2s"]
 [ext_resource type="Environment" uid="uid://dcod41koxlfcm" path="res://assets/mainmenu.env.tresa.tres" id="4_urvjm"]
 [ext_resource type="AudioStream" uid="uid://c8fxjo6dlyw4q" path="res://assets/decompress .mp3" id="5_5iw7r"]
 
@@ -47,10 +46,6 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -2.0
-offset_top = -650.0
-offset_right = -2.0
-offset_bottom = -650.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ne5gk")
@@ -81,15 +76,9 @@ grow_horizontal = 2
 
 [node name="TItle" type="Label" parent="HeaderBar"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -68.0
-offset_top = -31.5
-offset_right = 202.0
-offset_bottom = 78.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Moxira"
@@ -98,16 +87,16 @@ label_settings = SubResource("LabelSettings_urvjm")
 [node name="ButtonPanelMenuMain" type="Panel" parent="."]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 232.0
-offset_top = 217.0
-offset_right = -667.0
-offset_bottom = -74.0
+anchors_preset = -1
+anchor_left = 0.3125
+anchor_top = 0.344136
+anchor_right = 0.532118
+anchor_bottom = 0.895062
+offset_right = -3.05176e-05
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_em8oq")
+metadata/_edit_use_anchors_ = true
 
 [node name="ScrollContainer" type="ScrollContainer" parent="ButtonPanelMenuMain"]
 layout_mode = 0
@@ -157,27 +146,26 @@ text = "Quit
 [node name="ButtonContent" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.477
-anchor_top = 0.21
-anchor_right = 0.972
-anchor_bottom = 0.955
-offset_left = -95.504
-offset_top = -0.0800018
-offset_right = 19.256
-offset_bottom = 0.159973
+anchor_left = 0.394097
+anchor_top = 0.209877
+anchor_right = 0.988715
+anchor_bottom = 0.955247
+offset_left = 1.52588e-05
+offset_right = -1.52588e-05
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_em8oq")
+metadata/_edit_use_anchors_ = true
 
 [node name="ScrollContainer" type="ScrollContainer" parent="ButtonContent"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -36.0
-offset_top = -242.0
-offset_right = -36.0
-offset_bottom = -242.0
+offset_left = -33.0
+offset_top = 214.0
+offset_right = -33.0
+offset_bottom = 214.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -219,9 +207,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.93388, 0, 0)
 transform = Transform3D(38.1222, 0, 0, 0, 1, 0, 0, 0, 24.08, 0, -1.88961, 0)
 mesh = SubResource("BoxMesh_em8oq")
 
-[node name="Player" parent="Node3D" instance=ExtResource("4_j0q2s")]
-transform = Transform3D(-0.536166, 0, -0.844113, 0, 1, 0, 0.844113, 0, -0.536166, 0, -0.0537117, -0.284101)
-
 [node name="Camera3D" type="Camera3D" parent="."]
 environment = ExtResource("4_urvjm")
 current = true
@@ -233,9 +218,6 @@ compositor = SubResource("Compositor_5iw7r")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Camera3D"]
 stream = ExtResource("5_5iw7r")
 script = SubResource("GDScript_j0q2s")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(578, 327)
 
 [connection signal="pressed" from="ButtonPanelMenuMain/ScrollContainer/VBoxContainer/PlayButton" to="ButtonPanelMenuMain" method="_on_play_button_pressed"]
 [connection signal="pressed" from="ButtonPanelMenuMain/ScrollContainer/VBoxContainer/ShowSaveDir" to="." method="_on_showsdir_h"]

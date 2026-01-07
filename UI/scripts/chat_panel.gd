@@ -1,7 +1,13 @@
 extends Control
+class_name ChatPanel
+
 
 @onready var ChatInput = $ChatInput
 @onready var ChatOutput = $ChatOutput
+
+@onready var toast = preload("res://UI/ToastUi.tscn")
+
+var chat_config = ConfigFile.new()
 
 @export_category("Commands Settings")
 @export var commandPrefix : String = "/"
@@ -12,32 +18,75 @@ extends Control
 func _ready() -> void:
 	pass # Replace with function body.
 
+signal on_chat()
+signal on_runcommand(command_a)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass
 
-func run_command(command_name : String):
+func save_chat_data():
+	chat_config.set_value("chat_config", "username", "Moxira Kira Froxer")
+	chat_config.save("user://GameConfig/chat_configurations.config")
+	
+
+func output_newline(text : String):
+	ChatOutput.add_text(text)
+	ChatOutput.newline()
+
+
+func run_command(command_name : String, arg : Array):
+	on_runcommand.emit()
 	var cp = commandPrefix
 	if command_name == (cp + "help"):
-		ChatOutput.add_text("completion is below... ones with a * is not implemented")
-		ChatOutput.newline()
-		ChatOutput.append_text("help *tp *kill *playap *play *killserver *startserver")
-		ChatOutput.newline()
+		output_newline("Their are multiple commands avaliable")
+		output_newline("/help: displays this menu")
+		output_newline("""
+		/save: saves the configuration for chat
+		/kill: suppose to kill <entity>
+		/delete: delete who? me? No. this command is not implemented
+		/whoru: About me!
+		Thank you for using help model. Please proceed with a command. Or chat!
+		""")
 	elif command_name == (cp + "kill"):
-		ChatOutput.append_text("Feature not implemented, the chat does not know how to accept args")
-		ChatOutput.newline()
+		output_newline("""
+		
+		Kill who? I don't know. I don't know how to accept arguments yet. Please wait for my creator(s) to implement it!
+		
+		""")
+	elif command_name == (cp + "save"):
+		output_newline("Saving...")
+		save_chat_data()
+		var conf = chat_config.load("user://GameConfig/chat_configurations.config")
+		if conf != OK:
+			printerr("Sadly we cannot find the chat_configs... either it didn't write or I don't know what... Check chat_panel.gd")
+			output_newline("Sadly... the configuration file didn't saved! check to see if anything happened in chat_panel.gd")
+			return "configurational error :("
+		elif conf == OK:
+			output_newline("I have successfully done the action for you!")
+		else:
+			output_newline("I don't know what happened! Unknown, and a mystery...")
+	elif command_name == (cp + "whoru"):
+		output_newline("""
+		Who am I? I am a chat system created by XiLy. The creator of this game.
+		
+		'She' wanted me to be somewhat alive? I don't know. I am just here
+		being your chat system...
+		""")
 	else:
-		ChatOutput.append_text("(Error) Not a valid command silly... (tried to use: " + command_name + ") but failed...")
-		ChatOutput.newline()
+		output_newline("""
+		That's not a valid command silly...
+		attempted to use a invalid command set. :(
+		""")
 
 
 func _on_text_submitted(new_text: String) -> void:
 	if "/" in ChatInput.text:
-		run_command(new_text)
+		run_command(new_text, [])
 	else:
-		ChatOutput.append_text("< Unknown data user > " + new_text)
-		ChatOutput.newline()
+		on_chat.emit()
+		output_newline(": unknown > " + new_text)
+		#toast.send_toast("chat: " + new_text, 2.0)
 
 
 func _on_pressed() -> void:

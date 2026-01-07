@@ -79,3 +79,14 @@ func _on_player_pressed() -> void:
 
 func _on_chat_panel_pressed() -> void:
 	$ChatPanel.visible = true
+
+
+func _on_you_died_toggle_perma(toggled_on: bool) -> void:
+	var c = $"../"
+	c.perma_death = toggled_on
+
+
+func _on_player_pressedforce() -> void:
+	var c = preload("res://Entities/Player/player.gd").new()
+	c.current_health = 100
+	c.position = Vector3(0, 6, 0)

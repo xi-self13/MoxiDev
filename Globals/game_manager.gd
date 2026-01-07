@@ -18,12 +18,12 @@ func save():
 		"experience" : player.experience,
 		"level" : player.level,
 		"uname" : player.username,
-		"dname" : player.displayname
+		"dname" : player.displayname,
 		}
 	return save_dict
 
 func save_game():
-	var save_file = FileAccess.open("user://savegame.save", FileAccess.WRITE)
+	var save_file = FileAccess.open("user://WorldData/game_data.save", FileAccess.WRITE)
 	var save_nodes = get_tree().get_nodes_in_group("Persist")
 	for node in save_nodes:
 		if node.scene_file_path.is_empty():

@@ -14,20 +14,19 @@ config/name="Moxira"
 config/description="The best future game on the block…"
 config/version="o0.o1"
 run/main_scene="uid://hjyd1yu5ficr"
-config/features=PackedStringArray("4.5", "Forward Plus")
+config/features=PackedStringArray("4.4", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/image="res://assets/Splash.png"
-config/icon="res://assets/AppIcon.png"
+config/icon="res://assets/AppIconAlt.png"
 
 [autoload]
 
 GameManager="*res://Globals/game_manager.gd"
-TimeManager="*res://Globals/time.gd"
-PlayerDeathManager="*res://Globals/player_death_mang.gd"
 
 [display]
 
 window/size/mode=2
+window/size/borderless=true
 window/stretch/mode="canvas_items"
 mouse_cursor/custom_image="uid://cg4fh8ib2l15x"
 
@@ -86,12 +85,12 @@ temporary_controls.dev.flashlight={
 
 pointing/android/enable_long_press_as_right_click=true
 pointing/android/enable_pan_and_scale_gestures=true
+pointing/ios/enable_pan_and_scale_gestures=true
 sensors/enable_accelerometer=true
 sensors/enable_gravity=true
 sensors/enable_gyroscope=true
 sensors/enable_magnetometer=true
 pointing/emulate_touch_from_mouse=true
-pointing/ios/enable_pan_and_scale_gestures=true
 
 [internationalization]
 
@@ -99,6 +98,7 @@ locale/include_text_server_data=true
 
 [rendering]
 
+renderer/rendering_method="forward_plus"
 textures/default_filters/use_nearest_mipmap_filter=true
 viewport/hdr_2d=true
 anti_aliasing/quality/msaa_2d=3
@@ -109,60 +109,113 @@ anti_aliasing/quality/screen_space_aa=1
 [xogot]
 
 project/editorState=[{
-"column": 0,
-"line": 80,
-"path": "res://UI/scripts/mobileuicontrols.gd",
-"type": "file"
-}, {
-"column": 0,
-"line": 0,
+"column": 44,
+"current": true,
+"line": 355,
 "path": "res://Entities/Player/player.gd",
 "type": "file"
 }, {
 "column": 0,
-"line": 0,
-"path": "res://Globals/game_manager.gd",
-"type": "file"
-}, {
-"column": 0,
-"line": 0,
-"path": "res://UI/scripts/main_menu.gd",
-"type": "file"
-}, {
-"column": 0,
-"line": 33,
-"path": "res://Globals/player_death_mang.gd",
-"type": "file"
-}, {
-"title": "AnimationPlayer",
-"type": "doc"
-}, {
-"title": "AnimationMixer",
-"type": "doc"
-}, {
-"column": 0,
-"line": 0,
+"line": 50,
 "path": "res://Globals/time.gd",
 "type": "file"
 }, {
 "title": "JSON",
 "type": "doc"
 }, {
-"column": 8,
-"current": true,
-"line": 35,
+"column": 0,
+"line": 84,
 "path": "res://UI/scripts/chat_panel.gd",
 "type": "file"
 }, {
 "column": 0,
-"line": 17,
+"line": 20,
 "path": "res://UI/scripts/edit_profile.gd",
 "type": "file"
 }, {
 "title": "FileAccess",
 "type": "doc"
+}, {
+"title": "Tween",
+"type": "doc"
+}, {
+"column": 0,
+"line": 1,
+"path": "res://UI/scripts/toast_ui.gd",
+"type": "file"
+}, {
+"column": 0,
+"line": 0,
+"path": "res://Globals/effects.gd",
+"type": "file"
+}, {
+"title": "MultiplayerSynchronizer",
+"type": "doc"
+}, {
+"column": 0,
+"line": 9,
+"path": "res://UI/scripts/loading_ui.gd",
+"type": "file"
+}, {
+"title": "ResourcePreloader",
+"type": "doc"
+}, {
+"title": "@GDScript",
+"type": "doc"
+}, {
+"column": 0,
+"line": 3,
+"path": "res://assets/multiplayer_handle.gd",
+"type": "file"
+}, {
+"title": "MultiplayerAPI",
+"type": "doc"
+}, {
+"title": "MultiplayerPeer",
+"type": "doc"
+}, {
+"title": "SceneMultiplayer",
+"type": "doc"
+}, {
+"column": 0,
+"line": 0,
+"path": "res://Entities/Zombies/zombie_1.gd",
+"type": "file"
+}, {
+"title": "OfflineMultiplayerPeer",
+"type": "doc"
+}, {
+"column": 0,
+"line": 27,
+"path": "res://Globals/player_death_mang.gd",
+"type": "file"
+}, {
+"title": "Timer",
+"type": "doc"
+}, {
+"title": "ConfigFile",
+"type": "doc"
+}, {
+"title": "RayCast3D",
+"type": "doc"
+}, {
+"title": "ShapeCast3D",
+"type": "doc"
+}, {
+"title": "Area3D",
+"type": "doc"
+}, {
+"title": "CharacterBody3D",
+"type": "doc"
+}, {
+"column": 0,
+"line": 0,
+"path": "res://UI/scripts/mobileuicontrols.gd",
+"type": "file"
 }]
 project/breakpoints={
+"res://Entities/Player/player.gd": PackedInt32Array(),
+"res://Entities/Zombies/zombie_1.gd": PackedInt32Array(),
 "res://Globals/player_death_mang.gd": PackedInt32Array(),
 "res://Globals/time.gd": PackedInt32Array(),
 "res://UI/scripts/mobileuicontrols.gd": PackedInt32Array()
