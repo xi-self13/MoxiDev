@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://4ymff2i1wj47"]
+
+[ext_resource type="PackedScene" uid="uid://bm7g4riqjupsv" path="res://assets/Player/Model/Girl.fbx" id="1_hd75i"]
+
+[sub_resource type="Gradient" id="Gradient_hd75i"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_06dvt"]
+gradient = SubResource("Gradient_hd75i")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cr3c2"]
+rim = 0.68
+rim_tint = 0.0
+clearcoat = 0.7
+clearcoat_roughness = 0.35
+backlight = Color(1, 1, 1, 1)
+backlight_texture = SubResource("GradientTexture1D_06dvt")
+refraction_scale = 0.78
+refraction_texture_channel = 2
+
+[node name="Girl" instance=ExtResource("1_hd75i")]
+
+[node name="cuboid_3" parent="Girl/Body/Arms/Arm" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_cr3c2")
+
+[node name="InvisibleHands" parent="Girl" index="2"]
+visible = false
+
+[node name="cube_2" parent="Girl/InvisibleHands" index="0"]
+visible = false

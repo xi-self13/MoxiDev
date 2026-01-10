@@ -1,0 +1,48 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://nd1oq4ue7ubn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8s18r"]
+bg_color = Color(0.246541, 0.400659, 0.891926, 1)
+border_width_bottom = 5
+border_color = Color(0.568034, 0.651634, 0.993055, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ne5gk"]
+bg_color = Color(0.682353, 0.772549, 0.984314, 1)
+border_width_bottom = 5
+border_color = Color(0.235294, 0.360784, 0.917647, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4as0w"]
+bg_color = Color(0.894118, 0.92549, 0.745098, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(4.67069, 5.64678, 0, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 20
+
+[resource]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0, 0, 0, 1)
+Button/styles/focus = null
+Button/styles/hover = SubResource("StyleBoxFlat_8s18r")
+Button/styles/normal = SubResource("StyleBoxFlat_ne5gk")
+Button/styles/pressed = SubResource("StyleBoxFlat_4as0w")
+Window/fonts/title_font = null

@@ -1,0 +1,35 @@
+[gd_resource type="ArrayMesh" load_steps=3 format=4 uid="uid://bjiyp751p5iqo"]
+
+[ext_resource type="Material" uid="uid://bfyax0ejptevb" path="res://assets/Player/Materials/Torso1.tres" id="1_1umbe"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_wefon"]
+_surfaces = [{
+"aabb": AABB(-0.25, -0.25, -0.125, 0.5, 0.375, 0.25),
+"format": 34359742465,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAgABAAMAAwABAAAAAgAEAAAAAAAFAAMABQAAAAQAAwAGAAIABgADAAUABAACAAYABQAHAAYABgAHAAQABAAHAAUA"),
+"name": "Torso1",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AACAPgAAgL4AAAA+AACAPgAAAD4AAAA+AACAPgAAAD4AAAC+AACAvgAAAD4AAAA+AACAPgAAgL4AAAC+AACAvgAAgL4AAAA+AACAvgAAAD4AAAC+AACAvgAAgL4AAAC+")
+}]
+blend_shape_mode = 0
+
+[resource]
+resource_name = "cuboid_2"
+_surfaces = [{
+"aabb": AABB(-0.25, -0.25, -0.125, 0.5, 0.375, 0.25),
+"attribute_data": PackedByteArray("AACQPgAAAD8AAJA+AACgPgAA0D4AAKA+AADQPgAAAD8AAAg/AAAAAAAACD8AAAA+AACQPgAAAD4AAJA+AAAAAAAAAAAAAAAAAACAPgAAAAAAAIA+AABAPgAAAAAAAEA+AAAAAAAA4D4AAAA+AADgPgAAAD4AACA/AAAAAAAAID8AAJA+AAAgPgAACD8AACA+AAAIPwAAkD4AAJA+AACQPgAAAAAAANA+AAAAAAAAYD4AAIA+AABgPgAAgD4AANA+"),
+"format": 34359742487,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAAFAAYABgAHAAQACAAJAAoACgALAAgADAANAA4ADgAPAAwAEAARABIAEgATABAAFAAVABYAFgAXABQA"),
+"material": ExtResource("1_1umbe"),
+"name": "Torso1",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AACAPgAAgL4AAAA+AACAPgAAAD4AAAA+AACAPgAAAD4AAAC+AACAPgAAgL4AAAC+AACAPgAAAD4AAAC+AACAPgAAAD4AAAA+AACAvgAAAD4AAAA+AACAvgAAAD4AAAC+AACAvgAAAD4AAAA+AACAPgAAAD4AAAA+AACAPgAAgL4AAAA+AACAvgAAgL4AAAA+AACAvgAAAD4AAAC+AACAvgAAAD4AAAA+AACAvgAAgL4AAAA+AACAvgAAgL4AAAC+AACAvgAAgL4AAAA+AACAPgAAgL4AAAA+AACAPgAAgL4AAAC+AACAvgAAgL4AAAC+AACAPgAAgL4AAAC+AACAPgAAAD4AAAC+AACAvgAAAD4AAAC+AACAvgAAgL4AAAC+////f/////////9//////////3//////////f///////f///////v/9///////+//3///////7//f///////v/9//3////+//3//f////7//f/9/////v/9//3////+/AAD/f/9//78AAP9//3//vwAA/3//f/+/AAD/f/9//7//fwAA////v/9/AAD///+//38AAP///7//fwAA////v/////8AAP+//////wAA/7//////AAD/v/////8AAP+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_wefon")

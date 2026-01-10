@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4h2lyh67xg8t"]
+
+[ext_resource type="Script" uid="uid://clcivdskc0c6t" path="res://Globals/player_death_mang.gd" id="1_56tvm"]
+[ext_resource type="Script" uid="uid://2wostwiavm55" path="res://Globals/time.gd" id="2_8rpjj"]
+
+[node name="YouDied" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_56tvm")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DiedDescriptor" type="RichTextLabel" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.246528
+anchor_top = 0.753086
+anchor_right = 0.753472
+anchor_bottom = 1.00309
+offset_left = -1.52588e-05
+offset_top = -1.81198e-05
+offset_right = -3.05176e-05
+offset_bottom = -1.81198e-05
+bbcode_enabled = true
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Reload" type="Button" parent="Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.0941358
+text = "Reload…"
+metadata/_edit_use_anchors_ = true
+
+[node name="TimeManager" type="Node" parent="."]
+script = ExtResource("2_8rpjj")
+metadata/_custom_type_script = "uid://2wostwiavm55"
+
+[connection signal="pressed" from="Panel/Reload" to="." method="_on_pressedreload"]

@@ -1,0 +1,233 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+"ï»¿config_version"=5
+
+[application]
+
+config/name="Moxira"
+config/description="The best future game on the block…"
+config/version="o0.o1"
+run/main_scene="uid://hjyd1yu5ficr"
+config/features=PackedStringArray("4.4", "Forward Plus")
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/image="res://assets/Splash.png"
+config/icon="res://assets/AppIconAlt.png"
+
+[autoload]
+
+GameManager="*res://Globals/game_manager.gd"
+
+[display]
+
+window/size/borderless=true
+window/stretch/mode="canvas_items"
+mouse_cursor/custom_image="uid://cg4fh8ib2l15x"
+
+[global_group]
+
+Player=""
+
+[input]
+
+fowards={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":87,"key_label":0,"unicode":119,"location":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194320,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+back={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":83,"key_label":0,"unicode":115,"location":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194322,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+left={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":65,"key_label":0,"unicode":97,"location":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194319,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+right={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":68,"key_label":0,"unicode":100,"location":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194321,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+jump={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":32,"location":0,"echo":false,"script":null)
+]
+}
+sprint={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194325,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+crouch={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194326,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+temporary_controls.dev.flashlight={
+"deadzone": 0.5,
+"events": Array[InputEvent]([Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":70,"key_label":0,"unicode":102,"location":0,"echo":false,"script":null)
+])
+}
+debug_key={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194334,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+
+[input_devices]
+
+pointing/android/enable_long_press_as_right_click=true
+pointing/android/enable_pan_and_scale_gestures=true
+sensors/enable_accelerometer=true
+sensors/enable_gravity=true
+sensors/enable_gyroscope=true
+sensors/enable_magnetometer=true
+pointing/emulate_touch_from_mouse=true
+pointing/ios/enable_pan_and_scale_gestures=true
+
+[internationalization]
+
+locale/include_text_server_data=true
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+textures/default_filters/use_nearest_mipmap_filter=true
+viewport/hdr_2d=true
+anti_aliasing/quality/msaa_2d=3
+anti_aliasing/quality/msaa_3d=3
+anti_aliasing/quality/screen_space_aa=1
+2d/snap/snap_2d_transforms_to_pixel=true
+
+[xogot]
+
+project/editorState=[{
+"column": 44,
+"current": true,
+"line": 355,
+"path": "res://Entities/Player/player.gd",
+"type": "file"
+}, {
+"column": 0,
+"line": 50,
+"path": "res://Globals/time.gd",
+"type": "file"
+}, {
+"title": "JSON",
+"type": "doc"
+}, {
+"column": 0,
+"line": 84,
+"path": "res://UI/scripts/chat_panel.gd",
+"type": "file"
+}, {
+"column": 0,
+"line": 20,
+"path": "res://UI/scripts/edit_profile.gd",
+"type": "file"
+}, {
+"title": "FileAccess",
+"type": "doc"
+}, {
+"title": "Tween",
+"type": "doc"
+}, {
+"column": 0,
+"line": 1,
+"path": "res://UI/scripts/toast_ui.gd",
+"type": "file"
+}, {
+"column": 0,
+"line": 0,
+"path": "res://Globals/effects.gd",
+"type": "file"
+}, {
+"title": "MultiplayerSynchronizer",
+"type": "doc"
+}, {
+"column": 0,
+"line": 9,
+"path": "res://UI/scripts/loading_ui.gd",
+"type": "file"
+}, {
+"title": "ResourcePreloader",
+"type": "doc"
+}, {
+"title": "@GDScript",
+"type": "doc"
+}, {
+"column": 0,
+"line": 3,
+"path": "res://assets/multiplayer_handle.gd",
+"type": "file"
+}, {
+"title": "MultiplayerAPI",
+"type": "doc"
+}, {
+"title": "MultiplayerPeer",
+"type": "doc"
+}, {
+"title": "SceneMultiplayer",
+"type": "doc"
+}, {
+"column": 0,
+"line": 0,
+"path": "res://Entities/Zombies/zombie_1.gd",
+"type": "file"
+}, {
+"title": "OfflineMultiplayerPeer",
+"type": "doc"
+}, {
+"column": 0,
+"line": 27,
+"path": "res://Globals/player_death_mang.gd",
+"type": "file"
+}, {
+"title": "Timer",
+"type": "doc"
+}, {
+"title": "ConfigFile",
+"type": "doc"
+}, {
+"title": "RayCast3D",
+"type": "doc"
+}, {
+"title": "ShapeCast3D",
+"type": "doc"
+}, {
+"title": "Area3D",
+"type": "doc"
+}, {
+"title": "CharacterBody3D",
+"type": "doc"
+}, {
+"column": 0,
+"line": 0,
+"path": "res://UI/scripts/mobileuicontrols.gd",
+"type": "file"
+}]
+project/breakpoints={
+"res://Entities/Player/player.gd": PackedInt32Array(),
+"res://Entities/Zombies/zombie_1.gd": PackedInt32Array(),
+"res://Globals/player_death_mang.gd": PackedInt32Array(),
+"res://Globals/time.gd": PackedInt32Array(),
+"res://UI/scripts/mobileuicontrols.gd": PackedInt32Array()
+}
+
+[xr]
+
+openxr/enabled=true
+shaders/enabled=true
