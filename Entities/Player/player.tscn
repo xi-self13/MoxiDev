@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://cso1gt3072mb5"]
+[gd_scene load_steps=44 format=3 uid="uid://cso1gt3072mb5"]
 
 [ext_resource type="Script" uid="uid://bl7ulvedi5jkb" path="res://Entities/Player/player.gd" id="1_tcnsb"]
 [ext_resource type="Shader" uid="uid://dojfb1gh60b66" path="res://assets/shaders/effects/flashlightCone/light_beam.gdshader" id="2_4wf4l"]
@@ -13,6 +13,14 @@
 [ext_resource type="Texture2D" uid="uid://ccscbc5kesv2k" path="res://assets/Player/UiPack/HUD/Health/StanimaBelow.png" id="7_xr8lj"]
 [ext_resource type="Texture2D" uid="uid://bqy8pue3dk4d5" path="res://assets/Player/UiPack/HUD/Health/StanimaAbove.png" id="8_r8fok"]
 [ext_resource type="Script" uid="uid://bxd0w76nm80k0" path="res://Entities/Player/debug_menu.gd" id="13_owvpp"]
+[ext_resource type="Script" uid="uid://d2lywsjjpsgri" path="res://Entities/Player/StateMachine/idle.gd" id="15_nhbkt"]
+[ext_resource type="Script" uid="uid://78mb1lhfxxt5" path="res://Entities/Player/StateMachine/state_machine.gd" id="15_r8fok"]
+[ext_resource type="Script" uid="uid://dtjqdfyjixbxo" path="res://Entities/Player/StateMachine/walk.gd" id="16_nhbkt"]
+[ext_resource type="Script" uid="uid://b1r8s0ni5kwsq" path="res://Entities/Player/StateMachine/jump.gd" id="17_vskfa"]
+[ext_resource type="Script" uid="uid://coq0g1t4qo0xj" path="res://Entities/Player/StateMachine/run.gd" id="18_pjcup"]
+[ext_resource type="Script" uid="uid://jeiqoaxc8lx3" path="res://Entities/Player/StateMachine/fall.gd" id="19_0poeq"]
+[ext_resource type="Script" uid="uid://broxiuyqh3mvp" path="res://Entities/Player/StateMachine/crouch.gd" id="20_ppdlg"]
+[ext_resource type="Script" uid="uid://bm20215ygxi3e" path="res://Entities/Player/StateMachine/dead.gd" id="21_v7p16"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5c2io"]
 size = Vector3(1, 2.53882, 0.541931)
@@ -794,6 +802,7 @@ tracks/12/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
 [sub_resource type="Animation" id="Animation_0mokg"]
 resource_name = "Run"
 length = 0.5
+loop_mode = 1
 tracks/0/type = "rotation_3d"
 tracks/0/imported = true
 tracks/0/enabled = true
@@ -1078,6 +1087,7 @@ tracks/12/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_r6ekp"]
 resource_name = "Walkbasic"
+loop_mode = 1
 tracks/0/type = "rotation_3d"
 tracks/0/imported = true
 tracks/0/enabled = true
@@ -1806,6 +1816,32 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+unique_name_in_owner = true
+script = ExtResource("15_r8fok")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("15_nhbkt")
+
+[node name="Walking" type="Node" parent="StateMachine"]
+script = ExtResource("16_nhbkt")
+
+[node name="Jumping" type="Node" parent="StateMachine"]
+script = ExtResource("17_vskfa")
+
+[node name="Run" type="Node" parent="StateMachine"]
+script = ExtResource("18_pjcup")
+
+[node name="Falling" type="Node" parent="StateMachine"]
+script = ExtResource("19_0poeq")
+
+[node name="Crouch" type="Node" parent="StateMachine"]
+script = ExtResource("20_ppdlg")
+
+[node name="Dead" type="Node" parent="StateMachine"]
+script = ExtResource("21_v7p16")
+
 [connection signal="changed" from="MobileUi/Stats/Healthbar" to="." method="_on_current_health_changed"]
 [connection signal="value_changed" from="MobileUi/Stats/Healthbar" to="." method="_on_health_changed"]
 [connection signal="button_down" from="MobileUi/JoyArea/Forward" to="MobileUi" method="_on_forward_down"]
@@ -1831,5 +1867,6 @@ grow_vertical = 2
 [connection signal="pressed" from="MobileUi/PanelContainer/Minus20health" to="MobileUi" method="_on_player_pressed"]
 [connection signal="toggled" from="MobileUi/PanelContainer/TogglePermaDeath" to="MobileUi" method="_on_you_died_toggle_perma"]
 [connection signal="pressed" from="MobileUi/PanelContainer/Debug button" to="MobileUi" method="_on_debug_button_pressed"]
+[connection signal="finished" from="StateMachine/Idle" to="StateMachine" method="_on_idle_finished"]
 
 [editable path="Girl"]

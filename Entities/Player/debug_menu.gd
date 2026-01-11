@@ -35,13 +35,16 @@ func _process(delta: float) -> void:
 	var stamina = player.stamina_current
 	var speed = player.velocity
 	var runMultiplier = player.runMulti
-
+	var stat = %StateMachine.state
+	var floor = player.is_on_floor()
 	#Add the values you want to show to this dict
 	var values : Dictionary = {
 		"FPS": fps,
 		"Stamina": stamina,
 		"speed": speed,
 		"runMultiplier": runMultiplier,
+		"currentState": stat.name,
+		"is on floor?": floor,
 	}
 
 	if UINode:

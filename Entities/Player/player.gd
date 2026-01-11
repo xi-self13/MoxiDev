@@ -23,8 +23,8 @@ signal on_died
 signal on_low_health_threshold
 signal _on_ghosted
 
-# What changed here. In the exports.
-# Organized it some, and added stamina variables.
+# Normally you want to keep in here the properties of the player and functions that will be used for more than one state
+#-EC
 @export_category("Player Body Config")
 @export var stamina_current : float = 100.0
 @export var stamina_max : float = 100.0
@@ -114,46 +114,14 @@ func _physics_process(delta: float) -> void:
 	# Keep stats refreshing
 	staminabar.value = stamina_current
 	healthbar.value = current_health
-	# Idle
-	if ap.current_animation == "":
-		ap.play("Idle1")
+
 	if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
 		return
 	mouse_motion = mouse_motion.lerp(target_mouse_motion, mouse_smoothing_speed * delta)
 	# camera_rotation()
 	camera_rotation()
 
-	# Gravity & falling
-	if not is_on_floor():
-		if velocity.y >= 0:
-			ap.play("Falling")
-			velocity += get_gravity() * delta
-		else:
-			ap.play_backwards("Falling")
-			velocity += get_gravity() * delta * 0.5 * fall_multi
-	if was_on_floor and velocity.y > 1:
-		current_health -= 2
-	# Coyote time update
-	if coyote_jump_timer > 0.0:
-		coyote_jump_timer -= delta
-
-	# Jump buffering
-	if Input.is_action_just_pressed("jump"):
-		jump_buffered = true
-
-	# Crouch
-	if Input.is_action_pressed("crouch"):
-		$Camera3D.position.y = lerp($Camera3D.position.y, start_cam - 0.2, 0.2)
-		$CollisionShape3D.scale.y = lerp($CollisionShape3D.scale.y, start_coll - 0.2, 0.2)
-		movement_speed = 2
-		camera_3d.fov = lerp(camera_3d.fov, start_fov, delta * 30)
-		is_crouching = true
-	elif !$RayCast3D.is_colliding():
-		$Camera3D.position.y = lerp($Camera3D.position.y, start_cam, 0.25)
-		$CollisionShape3D.scale.y = lerp($CollisionShape3D.scale.y, start_coll, 0.25)
-		if !Input.is_action_pressed("sprint"):
-			movement_speed = 5
-		is_crouching = false
+	
 	# OnDied!
 	#if current_health == 0:
 	#	diedscreen.died()
@@ -162,73 +130,16 @@ func _physics_process(delta: float) -> void:
 	#else: 
 	#	diedscreen.visible = false
 		
-	# Sprint and stamina
 	
-	if stamina_current > 0: 
-		if !Input.is_action_pressed("crouch") and Input.is_action_pressed("sprint") and !is_crouching:
-			movement_speed = lerp(movement_speed, startSpeed * runMulti, 0.2)
-				
-			camera_3d.fov = lerp(camera_3d.fov, start_fov / zoom_multiplier, delta * 20.0)
-		else:
-			camera_3d.fov = lerp(camera_3d.fov, start_fov, delta * 30)
-			movement_speed = 5.0
-	else:
-		movement_speed = startSpeed
-	
-
-	# Jump
-	if jump_buffered and (is_on_floor() or coyote_jump_timer > 0.0):
-		velocity.y = sqrt(jump_height * 2 * -get_gravity().y)
-		jump_buffered = false
-		coyote_jump_timer = 0.0
-
-	# Movement input
-	var input_dir := Input.get_vector("left", "right", "fowards", "back")
-	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if direction:
-		if current_health != 0: 
-			time_passed += delta * 6.0
-			$Camera3D.position.y = cameraStartPos.y + sin(time_passed) * 0.1 / 3
-			if Input.is_action_pressed("sprint"):
-				stamina_current -= 5
-				ap.play("Run")
-			elif Input.is_action_pressed("crouch"):
-				ap.play("CrouchMove")
-			else: 
-				stamina_current += 5
-				ap.play("Walkbasic")
-			velocity.x = direction.x * movement_speed
-			velocity.z = direction.z * movement_speed
-		elif current_health == 0: 
-			pass
-	else:
-			if Input.is_action_just_released("sprint") or Input.is_action_just_released("back") or Input.is_action_just_released("fowards") or Input.is_action_just_released("left") or Input.is_action_just_released("right"): 
-				ap.stop()
-			velocity.x = move_toward(velocity.x, 0, movement_speed)
-			velocity.z = move_toward(velocity.z, 0, movement_speed)
 	check_is_dead()
 
-	move_and_slide()
-
-	# Update coyote jump
-	if was_on_floor and not is_on_floor():
-		coyote_jump_timer = coyote_time
-
-	if not was_on_floor and is_on_floor():
-		jump_buffered = false
-		
 
 	was_on_floor = is_on_floor()
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		target_mouse_motion = -event.relative * mouse_sensitivity
-	var t = 0
-	if t == 0 and Input.is_action_pressed("crouch"):
-		ap.play("CrouchDown", -1, 0.5)
-		await ap.animation_finished
-	elif Input.is_action_just_released("crouch"):
-		ap.play_backwards("CrouchDown")
+
 #		if event.pressed:
 #			ap.play("combat_fist")
 
@@ -236,10 +147,19 @@ func _input(event: InputEvent) -> void:
 # Suppose to handle death screen.
 # TODO! Fix the you died screen.
 func _process(delta: float) -> void:
-	stamina_rebuild()
+	pass
 	#var diedpos : Vector3
 	#var did_died : bool
 
+func stamina_rebuild(): 
+	if stamina_current < stamina_max and !Input.is_action_pressed("sprint"):
+		staminabar.value += 5
+		stamina_current += 5 * get_physics_process_delta_time()
+	# The stamina was going off limits, this will make sure never goes past the maximum or minimum - EC
+	if stamina_current > stamina_max:
+		stamina_current = stamina_max
+	elif stamina_current < -1:
+		stamina_current = 0
 
 # Nothing...
 func camera_rotation() -> void:
@@ -284,14 +204,7 @@ func _on_kill_plsettings() -> void:
 	c.visible = false
 
 
-func stamina_rebuild(): 
-	if stamina_current < stamina_max and !Input.is_action_pressed("sprint"):
-		staminabar.value += 5
-	# The stamina was going off limits, this will make sure never goes past the maximum or minimum - EC
-	if stamina_current > stamina_max:
-		stamina_current = stamina_max
-	elif stamina_current < -1:
-		stamina_current = 0
+
 
 func delay(sec : float):
 	var t = get_tree().create_timer(sec)
@@ -314,58 +227,14 @@ var was_dead : bool = false
 
 func check_is_dead():
 
-	if current_health <= 0 and was_dead == false:
-		if perma_death == true:
-			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-			camera_3d.rotation.y += 5.0 / 1000 # camera goes around
-			camera_3d.position += camera_3d.position.lerp(Vector3(0, 1, 0), 1.0) / 10
-			camera_3d.projection=Camera3D.PROJECTION_FRUSTUM
-			movement_speed = 0 # FREEZE! if anything, touch will be useless to move on MobileUi and DesktopUi because the deathscreen is over it!
-			diedscreen.diedtype = "unknown_perma"
-			diedscreen.died() # suppose to call the death screen, but i dont know if Godot works this away. (it does)
-			diedscreen.visible = true
-			diedscreen.add_desc("you have been... vanished? FOREVER!!!")
-			delay(5.0)
-			diedscreen.add_desc("Restart your game... idk. like. sure, go, bye.")
-			delay(5.0)
-			diedscreen.add_desc("and we repeat.")
-		elif perma_death == false:
-			was_dead = true
-			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-			camera_3d.rotation.y += 5.0 / 100 # camera goes around
-			camera_3d.position += camera_3d.position.lerp(Vector3(0, 1, 0), 1.0)
-			camera_3d.projection=Camera3D.PROJECTION_FRUSTUM
-			movement_speed = 0 # FREEZE! if anything, touch will be useless to move on MobileUi and DesktopUi because the deathscreen is over it!
-			diedscreen.diedtype = "unknown"
-			diedscreen.died()  # suppose to call the death screen, but i dont know if Godot works this away. (it does)
-			diedscreen.add_desc("... wow.. a round pipe killed you... sad...")
-			diedscreen.visible = true
-			await get_tree().create_timer(5.0).timeout
-			respawn()
+
 		#camera_3d.position = lerp(Vector3(7, 8, 9), Vector3(0, 1.37787, -0)
 		
-		#diedpos = camera_3d.position
-	elif current_health < 20:
+		#diedpos = camera_3d.positio
+		
+	if current_health < 20:
 		on_low_health_threshold.emit()
 		camera_3d.fov = 60
 		camera_3d.position = (Vector3(randf_range(-0.05,0.05), randf_range(-0.05,0.05), 0) + Vector3(0, 1.37787, -0.29387))
 	elif current_health == 100 and was_dead == true:
 		pass
-	else: 
-		#Since you make this check every phyisics frame the movement speed was always the same
-		#no matter what you changed to it, now the sprint mechanic should work just fine - EC
-		#movement_speed = 5.0
-		diedscreen.visible = false
-
-func respawn():
-	if was_dead == true:
-		diedscreen.visible = false
-		current_health = 100
-		self.position = Vector3(0,6,0)
-		movement_speed = 5.0
-		camera_3d.rotation.y = 0
-		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-		camera_3d.projection = Camera3D.PROJECTION_PERSPECTIVE
-		camera_3d.fov = lerp(20.0, start_fov, 0.05)
-		camera_3d.position = camera_3d.position.lerp(cameraStartPos, 1.0)
-		was_dead = false
