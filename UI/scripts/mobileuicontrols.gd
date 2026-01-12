@@ -12,6 +12,8 @@ func _ready() -> void:
 		self.visible = true
 	else: 
 		self.visible = false
+	#Debug
+	#self.visible = true
 
 
 
@@ -93,4 +95,4 @@ func _on_player_pressedforce() -> void:
 	c.position = Vector3(0, 6, 0)
 
 func _on_debug_button_pressed() -> void:
-	Input.action_press("debug_key")
+	%DebugMenu.toggle_visibility()

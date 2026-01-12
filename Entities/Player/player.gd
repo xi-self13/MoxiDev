@@ -139,7 +139,6 @@ func _physics_process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		target_mouse_motion = -event.relative * mouse_sensitivity
-
 #		if event.pressed:
 #			ap.play("combat_fist")
 
@@ -148,6 +147,8 @@ func _input(event: InputEvent) -> void:
 # TODO! Fix the you died screen.
 func _process(delta: float) -> void:
 	pass
+	#if Input.is_action_just_pressed("mouse_release"):
+		#Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	#var diedpos : Vector3
 	#var did_died : bool
 

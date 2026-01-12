@@ -24,6 +24,7 @@ func _enter_tree() -> void:
 		debug_label.text = ""
 		debug_label.set_anchors_preset(Control.PRESET_FULL_RECT)
 		debug_panel.add_child(debug_label)
+		debug_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		UINode.add_child(debug_panel)
 		debug_menu = debug_panel
 		
@@ -57,4 +58,7 @@ func _process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	#The debug_key is normally F3 to toggle the debug menu on or off JUST LIKE IN MINECRAFT
 	if event.is_action_pressed("debug_key"):
-		debug_menu.visible = !debug_menu.visible
+		toggle_visibility()
+
+func toggle_visibility():
+	debug_menu.visible = !debug_menu.visible

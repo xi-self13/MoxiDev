@@ -1711,6 +1711,7 @@ text = "Player Settings"
 metadata/_edit_use_anchors_ = true
 
 [node name="PanelContainer" type="Panel" parent="MobileUi"]
+visible = false
 layout_mode = 0
 offset_right = 715.0
 offset_bottom = 648.0
@@ -1815,6 +1816,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 unique_name_in_owner = true
@@ -1867,6 +1869,5 @@ script = ExtResource("21_v7p16")
 [connection signal="pressed" from="MobileUi/PanelContainer/Minus20health" to="MobileUi" method="_on_player_pressed"]
 [connection signal="toggled" from="MobileUi/PanelContainer/TogglePermaDeath" to="MobileUi" method="_on_you_died_toggle_perma"]
 [connection signal="pressed" from="MobileUi/PanelContainer/Debug button" to="MobileUi" method="_on_debug_button_pressed"]
-[connection signal="finished" from="StateMachine/Idle" to="StateMachine" method="_on_idle_finished"]
 
 [editable path="Girl"]
