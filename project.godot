@@ -24,6 +24,7 @@ config/icon="res://assets/AppIconAlt.png"
 [autoload]
 
 GameManager="*res://Globals/game_manager.gd"
+GlobalTime="*res://Globals/time.gd"
 
 [display]
 

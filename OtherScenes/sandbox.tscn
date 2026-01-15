@@ -1,25 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://gvoyffts6jn6"]
+[gd_scene load_steps=9 format=3 uid="uid://gvoyffts6jn6"]
 
 [ext_resource type="PackedScene" uid="uid://cso1gt3072mb5" path="res://Entities/Player/player.tscn" id="1_ymirs"]
-[ext_resource type="Script" uid="uid://2wostwiavm55" path="res://Globals/time.gd" id="3_341mu"]
 [ext_resource type="PackedScene" uid="uid://dt7ubr5hawi35" path="res://Entities/Zombies/Zombie1.tscn" id="4_uo8pk"]
-
-[sub_resource type="GDScript" id="GDScript_341mu"]
-resource_name = "Sun"
-script/source = "extends DirectionalLight3D
-
-# TODO! Remove this file and make an actual time system T_T
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void: pass
-	#self.rotation += Vector3(3, 2, 4) / 5000
-	
-"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_341mu"]
 metallic = 1.0
@@ -52,7 +34,6 @@ size = Vector3(12.565, 1.71631, 11.6957)
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.680173, -0.101638, 0.379317, 0.350757, 0.183889, 0.678234, -0.176582, 0.756771, -0.113861, 0, 0, 0)
 light_energy = 0.915
 light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.0
@@ -70,7 +51,6 @@ directional_shadow_blend_splits = true
 directional_shadow_fade_start = 0.61
 directional_shadow_max_distance = 11.3
 directional_shadow_pancake_size = 0.0
-script = SubResource("GDScript_341mu")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
@@ -99,10 +79,6 @@ mesh = SubResource("SphereMesh_341mu")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
 shape = SubResource("SphereShape3D_uo8pk")
-
-[node name="Time" type="Node" parent="." node_paths=PackedStringArray("sun_node")]
-script = ExtResource("3_341mu")
-sun_node = NodePath("../DirectionalLight3D")
 
 [node name="Zombie1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_uo8pk")]
 transform = Transform3D(0.574991, 0, 0.81816, 0, 1, 0, -0.81816, 0, 0.574991, 0, 1.18112, -17.3707)

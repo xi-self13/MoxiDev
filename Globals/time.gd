@@ -3,56 +3,59 @@ extends Node
 # note to Freewave, set this as a global as my editor (Xogot) cannot perform this action due to payment.
 # - XiLy
 @export_category("Sun Properties")
-@export var time_speed : int = 5000
-@export var sun_node : DirectionalLight3D
+@export var ticks_per_second: float = 60.0 ## 1 tick = 1 second in real life
 
-var current_time : float
-#func GetDirectionalLightNode():
-#	var tree = get_tree()
-#	return tree.current_scene.get_node(%Sun)
+var sun_node : DirectionalLight3D
 
-func time_set_forward(_forward_to_usec : int): pass
-	#var sun_node = GetDirectionalLightNode()
-#	sun_node.rotation += forward_to_usec
+var seconds : float
+var minutes : float
+var hours : int = 0 ##Change this to edit starting hour
 
-# i dont know right now, ill comeback here. - XiLy
-func time_get(): pass
-	#var sun_node = GetDirectionalLightNode()
-	#var sun_rot = int(sun_node.rotation)
-#
-signal timeout_delay
+func _ready() -> void:
+	if get_tree().current_scene == Node3D:
+		#Check if the current scene can be applied time
+		#this way time doesn't passes when we are in the main menu 
+		for i in get_tree().current_scene.get_children():
+			if i is DirectionalLight3D:
+				sun_node = i
 
+func time_repeat(delta: float):
+	seconds += delta * ticks_per_second
+	if seconds >= 60.0:
+		seconds = 0
+		minutes += 1
+	if minutes >= 60:
+		minutes = 0
+		hours += 1
+	if hours >= 24:  #
+		hours = 0
+		minutes = 0
+		seconds = 0
+	update_sun_rotation()
+	return str(hours,":",minutes,":",seconds)
+	
 
-func delay(sec : float):
-	var s = sec
-	while s != 0:
-		print("(time.gd L30): time" + str(s) )
-		s -= .1
-		if s <= 0:
-			timeout_delay.emit()
-			break
-
-
-func start_day_night(timespeed : float):
+func update_sun_rotation():
 	if not sun_node:
-		#printerr("No node set for sun... is you using it for timer instead?")
-		return "no... sun"
-	var m = 0.0
-	m += (timespeed + current_time)
-	sun_node.rotation += Vector3(1,7,2) / m * (timespeed * 2) / 10000.0
-	var v = 0
-	# TODO! Add a proper time conversion where it outputs time and other features.
-	return v
+		return
+	
+	
+	var total_hours = hours + (minutes / 60.0) + (seconds / 3600.0)
+	
+	# 0 hours = midnight
+	# 6 hours = morning 
+	# 12 hours = mid-day or smth idk english
+	# 18 hours = evening 
+	# 24 hours = night
+	
+	var sun_angle = (total_hours / 24.0) * 360.0
+	
+
+	sun_node.rotation_degrees.x = -(sun_angle - 90.0)
 
 
-@onready var g = $Label3D
-
-func time_repeat(delta : float):
-	current_time += 3.0 * delta
-	if current_time == 24.0:
-		current_time -= 24.0
 
 
 func _process(delta: float) -> void:
-	var _r = start_day_night(1000)
-	var t = time_repeat(delta)
+	if sun_node:
+		var t = time_repeat(delta)
