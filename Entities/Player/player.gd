@@ -36,7 +36,7 @@ signal _on_ghosted
 @export var damage := 20.0
 @export var experience := 0.0
 @export var level := 0.0
-@export var runMulti: float = 4
+@export var runMulti: float = 2
 @export var fall_multi: float = 2.5
 @export var jump_height: float = 1.0
 @export var coyote_time: float = 0.1
@@ -67,8 +67,8 @@ signal _on_ghosted
 @onready var cameraStartPos: Vector3 = $Camera3D.position
 @onready var start_fov := camera_3d.fov
 @onready var diedscreen = $YouDied
-@onready var staminabar = $MobileUi/Stats/staminabar
-@onready var healthbar = $MobileUi/Stats/Healthbar
+@onready var healthbar: TextureProgressBar = $Stats/Healthbar
+@onready var staminabar: TextureProgressBar = $Stats/staminabar
 
 
 
@@ -139,6 +139,8 @@ func _physics_process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		target_mouse_motion = -event.relative * mouse_sensitivity
+
+		
 #		if event.pressed:
 #			ap.play("combat_fist")
 
@@ -239,3 +241,11 @@ func check_is_dead():
 		camera_3d.position = (Vector3(randf_range(-0.05,0.05), randf_range(-0.05,0.05), 0) + Vector3(0, 1.37787, -0.29387))
 	elif current_health == 100 and was_dead == true:
 		pass
+
+
+func _on_staminabar_changed() -> void:
+	pass # Replace with function body.
+
+
+func _on_staminabar_value_changed(value: float) -> void:
+	pass # Replace with function body.

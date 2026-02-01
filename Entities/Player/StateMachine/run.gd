@@ -1,7 +1,7 @@
 extends PlayerState
 #change the properties for the run multiplier and Stamina drain, player runs at insane speeds
 func enter(previous_state_path: String, data := {}) -> void:
-	player.ap.play("run")
+	player.ap.play("Run")
 	player.camera_3d.fov = lerp(player.camera_3d.fov, player.start_fov / player.zoom_multiplier, get_physics_process_delta_time() * 20.0)	
 
 func physics_update(delta: float) -> void:

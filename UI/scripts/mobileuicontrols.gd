@@ -9,9 +9,13 @@ func _ready() -> void:
 	print("(Server): Mobile Controls Enabled")
 	print("Running on " + str(OS.get_distribution_name()))
 	if OS.get_distribution_name() == "iOS" or OS.get_distribution_name() == "Android":
+		GameManager.platform = "Mobile"
 		self.visible = true
+		
 	else: 
-		self.visible = false
+		GameManager.platform = "Desktop"
+		%DesktopUI.visible = true
+		self.queue_free()
 	#Debug
 	#self.visible = true
 

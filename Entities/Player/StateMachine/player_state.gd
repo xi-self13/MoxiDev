@@ -8,8 +8,12 @@ const JUMPING = "Jumping"
 const FALLING = "Falling"
 const CROUCH = "Crouch"
 const DEAD = "Dead"
+const STOP = "Stop"
 var player: Player
 
+func update(delta: float) -> void:
+	if %ChatPanel.visible == true:
+		finished.emit(STOP)
 
 func _ready() -> void:
 	await owner.ready

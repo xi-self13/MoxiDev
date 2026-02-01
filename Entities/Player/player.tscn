@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://cso1gt3072mb5"]
+[gd_scene load_steps=46 format=3 uid="uid://cso1gt3072mb5"]
 
 [ext_resource type="Script" uid="uid://bl7ulvedi5jkb" path="res://Entities/Player/player.gd" id="1_tcnsb"]
 [ext_resource type="Shader" uid="uid://dojfb1gh60b66" path="res://assets/shaders/effects/flashlightCone/light_beam.gdshader" id="2_4wf4l"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://semsmbohlmwu" path="res://UI/scripts/mobileuicontrols.gd" id="3_tekja"]
 [ext_resource type="PackedScene" uid="uid://bm3ntb0va12ek" path="res://UI/ToastUi.tscn" id="4_7a1se"]
 [ext_resource type="PackedScene" uid="uid://c4h2lyh67xg8t" path="res://DiedScreen.tscn" id="4_tekja"]
+[ext_resource type="Script" uid="uid://cb2h7ntvvjhds" path="res://UI/scripts/desktop_ui.gd" id="5_a8wow"]
 [ext_resource type="Texture2D" uid="uid://cf5epxsdprgvs" path="res://assets/Player/UiPack/HUD/Health/HeartUnder.png" id="5_iplt1"]
 [ext_resource type="Texture2D" uid="uid://jhf8uu6h8g7i" path="res://assets/Player/UiPack/HUD/Health/HeartFill.png" id="6_owvpp"]
 [ext_resource type="AnimationLibrary" uid="uid://cfpavemgcl1vj" path="res://assets/Player/Animations/AnimationLib/plranimations.res" id="7_01a4e"]
@@ -21,6 +22,7 @@
 [ext_resource type="Script" uid="uid://jeiqoaxc8lx3" path="res://Entities/Player/StateMachine/fall.gd" id="19_0poeq"]
 [ext_resource type="Script" uid="uid://broxiuyqh3mvp" path="res://Entities/Player/StateMachine/crouch.gd" id="20_ppdlg"]
 [ext_resource type="Script" uid="uid://bm20215ygxi3e" path="res://Entities/Player/StateMachine/dead.gd" id="21_v7p16"]
+[ext_resource type="Script" uid="uid://cklbk53dajvan" path="res://Entities/Player/StateMachine/stop.gd" id="23_avsg8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5c2io"]
 size = Vector3(1, 2.53882, 0.541931)
@@ -1530,6 +1532,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 target_position = Vector3(0, 0.2, 0)
 
 [node name="MobileUi" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -1541,44 +1544,6 @@ metadata/_edit_lock_ = true
 
 [node name="Control" parent="MobileUi" instance=ExtResource("4_7a1se")]
 layout_mode = 1
-
-[node name="Stats" type="Control" parent="MobileUi"]
-anchors_preset = 0
-offset_right = 1152.0
-offset_bottom = 51.0
-
-[node name="Healthbar" type="TextureProgressBar" parent="MobileUi/Stats"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.618056
-anchor_top = 10.8235
-anchor_right = 0.677951
-anchor_bottom = 12.2353
-offset_left = -3.05176e-05
-offset_bottom = -1.14441e-05
-grow_horizontal = 2
-grow_vertical = 0
-value = 1.0
-fill_mode = 3
-nine_patch_stretch = true
-texture_under = ExtResource("5_iplt1")
-texture_progress = ExtResource("6_owvpp")
-metadata/_edit_use_anchors_ = true
-
-[node name="staminabar" type="TextureProgressBar" parent="MobileUi/Stats"]
-layout_mode = 0
-anchor_left = 0.523438
-anchor_top = 10.7059
-anchor_right = 0.59809
-anchor_bottom = 12.3333
-offset_top = 1.43051e-05
-offset_right = -1.52588e-05
-offset_bottom = 1.62125e-05
-fill_mode = 3
-nine_patch_stretch = true
-texture_under = ExtResource("7_xr8lj")
-texture_progress = ExtResource("8_r8fok")
-metadata/_edit_use_anchors_ = true
 
 [node name="JoyArea" type="Control" parent="MobileUi"]
 anchors_preset = 0
@@ -1765,9 +1730,57 @@ offset_right = 380.0
 offset_bottom = 101.0
 text = "Toggle Debug Menu"
 
-[node name="ChatPanel" parent="MobileUi" instance=ExtResource("3_5c2io")]
+[node name="DesktopUI" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_a8wow")
+metadata/_edit_use_anchors_ = true
+
+[node name="ChatPanel" parent="." instance=ExtResource("3_5c2io")]
+unique_name_in_owner = true
 visible = false
+
+[node name="Stats" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 51.0
+
+[node name="Healthbar" type="TextureProgressBar" parent="Stats"]
 layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0364583
+anchor_top = 10.7647
+anchor_right = 0.0963534
+anchor_bottom = 12.1765
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+value = 1.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_under = ExtResource("5_iplt1")
+texture_progress = ExtResource("6_owvpp")
+metadata/_edit_use_anchors_ = true
+
+[node name="staminabar" type="TextureProgressBar" parent="Stats"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.131076
+anchor_top = 10.8823
+anchor_right = 0.205728
+anchor_bottom = 12.5097
+mouse_filter = 2
+fill_mode = 3
+nine_patch_stretch = true
+texture_under = ExtResource("7_xr8lj")
+texture_progress = ExtResource("8_r8fok")
+metadata/_edit_use_anchors_ = true
 
 [node name="YouDied" parent="." instance=ExtResource("4_tekja")]
 visible = false
@@ -1807,16 +1820,7 @@ text = "Moxira Kira Froxer (Default Name)"
 [node name="DebugMenu" type="Node" parent="." node_paths=PackedStringArray("UINode")]
 unique_name_in_owner = true
 script = ExtResource("13_owvpp")
-UINode = NodePath("../DebugUI")
-
-[node name="DebugUI" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
+UINode = NodePath("../DesktopUI")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 unique_name_in_owner = true
@@ -1844,8 +1848,9 @@ script = ExtResource("20_ppdlg")
 [node name="Dead" type="Node" parent="StateMachine"]
 script = ExtResource("21_v7p16")
 
-[connection signal="changed" from="MobileUi/Stats/Healthbar" to="." method="_on_current_health_changed"]
-[connection signal="value_changed" from="MobileUi/Stats/Healthbar" to="." method="_on_health_changed"]
+[node name="Stop" type="Node" parent="StateMachine"]
+script = ExtResource("23_avsg8")
+
 [connection signal="button_down" from="MobileUi/JoyArea/Forward" to="MobileUi" method="_on_forward_down"]
 [connection signal="button_up" from="MobileUi/JoyArea/Forward" to="MobileUi" method="_on_forward_up"]
 [connection signal="toggled" from="MobileUi/JoyArea/Flashlight" to="MobileUi" method="_on_flashlight_toggle"]
@@ -1869,5 +1874,9 @@ script = ExtResource("21_v7p16")
 [connection signal="pressed" from="MobileUi/PanelContainer/Minus20health" to="MobileUi" method="_on_player_pressed"]
 [connection signal="toggled" from="MobileUi/PanelContainer/TogglePermaDeath" to="MobileUi" method="_on_you_died_toggle_perma"]
 [connection signal="pressed" from="MobileUi/PanelContainer/Debug button" to="MobileUi" method="_on_debug_button_pressed"]
+[connection signal="changed" from="Stats/Healthbar" to="." method="_on_current_health_changed"]
+[connection signal="value_changed" from="Stats/Healthbar" to="." method="_on_health_changed"]
+[connection signal="changed" from="Stats/staminabar" to="." method="_on_staminabar_changed"]
+[connection signal="value_changed" from="Stats/staminabar" to="." method="_on_staminabar_value_changed"]
 
 [editable path="Girl"]
