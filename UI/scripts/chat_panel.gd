@@ -16,20 +16,28 @@ var chat_config = ConfigFile.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+<<<<<<< HEAD
 	if GameManager.platform == "Mobile":
 		$Bye.show()
 	else:
 		$Bye.hide()
+=======
+	pass # Replace with function body.
+>>>>>>> 9d1ac263696d885e4b5cb26c245d09811db1843f
 
 signal on_chat()
 signal on_runcommand(command_a)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+<<<<<<< HEAD
 	if Input.is_action_just_pressed("ui_cancel"):
 		self.visible = false
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
+=======
+	pass
+>>>>>>> 9d1ac263696d885e4b5cb26c245d09811db1843f
 
 func save_chat_data():
 	chat_config.set_value("chat_config", "username", "Moxira Kira Froxer")

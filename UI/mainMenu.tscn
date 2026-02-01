@@ -1,9 +1,16 @@
+<<<<<<< HEAD
 [gd_scene load_steps=12 format=3 uid="uid://hjyd1yu5ficr"]
+=======
+[gd_scene load_steps=11 format=3 uid="uid://hjyd1yu5ficr"]
+>>>>>>> 9d1ac263696d885e4b5cb26c245d09811db1843f
 
 [ext_resource type="Script" uid="uid://b0nt03vf770do" path="res://UI/scripts/main_menu.gd" id="1_ne5gk"]
 [ext_resource type="Script" uid="uid://8u72n6rr6i2b" path="res://UI/scripts/button_panel_menu_main.gd" id="2_em8oq"]
 [ext_resource type="Theme" uid="uid://nd1oq4ue7ubn" path="res://MainTheme.tres" id="3_em8oq"]
+<<<<<<< HEAD
 [ext_resource type="Script" uid="uid://d4fu5q75wlab0" path="res://UI/settings_window.gd" id="4_j0q2s"]
+=======
+>>>>>>> 9d1ac263696d885e4b5cb26c245d09811db1843f
 [ext_resource type="Environment" uid="uid://dcod41koxlfcm" path="res://assets/mainmenu.env.tresa.tres" id="4_urvjm"]
 [ext_resource type="AudioStream" uid="uid://c8fxjo6dlyw4q" path="res://assets/decompress .mp3" id="5_5iw7r"]
 
@@ -183,7 +190,10 @@ wrap_controls = true
 unresizable = true
 sharp_corners = true
 theme = ExtResource("3_em8oq")
+<<<<<<< HEAD
 script = ExtResource("4_j0q2s")
+=======
+>>>>>>> 9d1ac263696d885e4b5cb26c245d09811db1843f
 
 [node name="VScrollBar" type="VScrollBar" parent="SettingsWindow"]
 offset_right = 8.0
@@ -199,10 +209,13 @@ grow_vertical = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="SettingsWindow/ScrollContainer"]
 layout_mode = 2
 
+<<<<<<< HEAD
 [node name="CheckButton" type="CheckButton" parent="SettingsWindow/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 text = "Post-Processing Effects"
 
+=======
+>>>>>>> 9d1ac263696d885e4b5cb26c245d09811db1843f
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.286892, 0.957963, 0, -0.957963, 0.286893, 0, 0, 0.0152702)
 
@@ -217,8 +230,12 @@ mesh = SubResource("BoxMesh_em8oq")
 environment = ExtResource("4_urvjm")
 current = true
 
+<<<<<<< HEAD
 [node name="WE" type="WorldEnvironment" parent="Camera3D"]
 unique_name_in_owner = true
+=======
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Camera3D"]
+>>>>>>> 9d1ac263696d885e4b5cb26c245d09811db1843f
 environment = ExtResource("4_urvjm")
 compositor = SubResource("Compositor_5iw7r")
 
@@ -231,5 +248,8 @@ script = SubResource("GDScript_j0q2s")
 [connection signal="pressed" from="ButtonPanelMenuMain/ScrollContainer/VBoxContainer/Settings" to="ButtonPanelMenuMain" method="_on_settings_pressed"]
 [connection signal="pressed" from="ButtonPanelMenuMain/ScrollContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="close_requested" from="SettingsWindow" to="ButtonPanelMenuMain" method="_on_settings_window_close_requested"]
+<<<<<<< HEAD
 [connection signal="toggled" from="SettingsWindow/ScrollContainer/VBoxContainer/CheckButton" to="SettingsWindow" method="_on_check_button_toggled"]
+=======
+>>>>>>> 9d1ac263696d885e4b5cb26c245d09811db1843f
 [connection signal="finished" from="Camera3D/AudioStreamPlayer" to="Camera3D/AudioStreamPlayer" method="_on_finished"]

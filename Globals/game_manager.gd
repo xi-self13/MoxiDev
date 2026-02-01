@@ -1,9 +1,12 @@
 extends Node
 
 var player :=  preload("res://Entities/Player/player.tscn")
+<<<<<<< HEAD
 
 var platform = OS.get_name()
 
+=======
+>>>>>>> 9d1ac263696d885e4b5cb26c245d09811db1843f
 func save():
 	if !player:
 		return {"filename" : get_scene_file_path(), "parent" : get_parent().get_path()}
