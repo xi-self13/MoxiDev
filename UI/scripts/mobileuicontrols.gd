@@ -9,9 +9,22 @@ func _ready() -> void:
 	print("(Server): Mobile Controls Enabled")
 	print("Running on " + str(OS.get_distribution_name()))
 	if OS.get_distribution_name() == "iOS" or OS.get_distribution_name() == "Android":
+<<<<<<< HEAD
+		GameManager.platform = "Mobile"
+		self.visible = true
+		
+	else: 
+		GameManager.platform = "Desktop"
+		%DesktopUI.visible = true
+		self.queue_free()
+	#Debug
+	#self.visible = true
+
+=======
 		self.visible = true
 	else: 
 		self.visible = false
+>>>>>>> 9d1ac263696d885e4b5cb26c245d09811db1843f
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -90,3 +103,9 @@ func _on_player_pressedforce() -> void:
 	var c = preload("res://Entities/Player/player.gd").new()
 	c.current_health = 100
 	c.position = Vector3(0, 6, 0)
+<<<<<<< HEAD
+
+func _on_debug_button_pressed() -> void:
+	%DebugMenu.toggle_visibility()
+=======
+>>>>>>> 9d1ac263696d885e4b5cb26c245d09811db1843f
