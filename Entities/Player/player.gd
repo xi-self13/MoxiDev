@@ -2,25 +2,13 @@ extends CharacterBody3D
 class_name Player
 
 # TODO! 12/25/25 10:48 PM Central USA Time
-<<<<<<< HEAD
 # stamina and the stamina_rebuild() is broken. For some reason
-=======
-# Stanima and the stanima_rebuild() is broken. For some reason
->>>>>>> 9d1ac263696d885e4b5cb26c245d09811db1843f
 # it causes the game engine/game to hang.
-#
 # Its commented and set aside while we still use the previous working
 # codes.
-# 
-<<<<<<< HEAD
 # once done, see if we is able to implement stamina!
 # after stamina, I (XiLy) will work out how to setup health
-=======
-# once done, see if we is able to implement stanima!
-# after stanima, I (XiLy) will work out how to setup health
->>>>>>> 9d1ac263696d885e4b5cb26c245d09811db1843f
 # and effects (buffs and debuffs) to work!
-# 
 # Optimize if needed.
 # Happy holidays and happy coding!
 # - XiLy
@@ -32,19 +20,16 @@ signal on_died
 signal on_low_health_threshold
 signal _on_ghosted
 
-<<<<<<< HEAD
 # Normally you want to keep in here the properties of the player and functions that will be used for more than one state
 #-EC
 @export_category("Player Body Config")
 @export var stamina_current : float = 100.0
 @export var stamina_max : float = 100.0
-=======
 # What changed here. In the exports.
 # Organized it some, and added stanima variables.
 @export_category("Player Body Config")
 @export var stanima_current : float = 100.0
 @export var stanima_max : float = 100.0
->>>>>>> 9d1ac263696d885e4b5cb26c245d09811db1843f
 @export var movement_speed := 5.0
 @export var attack := 10.0
 @export var defence := 10.0
@@ -53,11 +38,7 @@ signal _on_ghosted
 @export var damage := 20.0
 @export var experience := 0.0
 @export var level := 0.0
-<<<<<<< HEAD
 @export var runMulti: float = 2
-=======
-@export var runMulti: float = 4
->>>>>>> 9d1ac263696d885e4b5cb26c245d09811db1843f
 @export var fall_multi: float = 2.5
 @export var jump_height: float = 1.0
 @export var coyote_time: float = 0.1
@@ -80,11 +61,7 @@ signal _on_ghosted
 @export var is_ghosted : bool = false 
 
 # What changed here?
-<<<<<<< HEAD
 # defined stamina Bar.
-=======
-# defined Stanima Bar.
->>>>>>> 9d1ac263696d885e4b5cb26c245d09811db1843f
 @onready var areaofdeath = %Area3D
 @onready var head = $Girl/Girl/Body/Head
 @onready var ap: AnimationPlayer = $Girl/AnimationPlayer
@@ -92,13 +69,9 @@ signal _on_ghosted
 @onready var cameraStartPos: Vector3 = $Camera3D.position
 @onready var start_fov := camera_3d.fov
 @onready var diedscreen = $YouDied
-<<<<<<< HEAD
 @onready var healthbar: TextureProgressBar = $Stats/Healthbar
 @onready var staminabar: TextureProgressBar = $Stats/staminabar
-=======
-@onready var stanimabar = $MobileUi/Stats/Stanimabar
-@onready var healthbar = $MobileUi/Stats/Healthbar
->>>>>>> 9d1ac263696d885e4b5cb26c245d09811db1843f
+@onready var stanimabar = $Stats/staminabar
 
 
 
@@ -121,13 +94,10 @@ func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	start_cam = $Camera3D.position.y
 	start_coll = $CollisionShape3D.scale.y
-<<<<<<< HEAD
 	staminabar.max_value = stamina_max # [Fixed... the node was in the wrong path...] Xogot decided to cancel this variable after it worked!? Check if Godot itself is okay with this attribute.
 	staminabar.value = stamina_current
-=======
 	stanimabar.max_value = stanima_max # [Fixed... the node was in the wrong path...] Xogot decided to cancel this variable after it worked!? Check if Godot itself is okay with this attribute.
 	stanimabar.value = stanima_current
->>>>>>> 9d1ac263696d885e4b5cb26c245d09811db1843f
 	healthbar.max_value = max_health
 	healthbar.value = current_health
 	camera_3d.near = 0.1
@@ -147,26 +117,20 @@ func _physics_process(delta: float) -> void:
 	else: 
 		$Camera3D/SpotLight3D.visible = false
 	# Keep stats refreshing
-<<<<<<< HEAD
 	staminabar.value = stamina_current
 	healthbar.value = current_health
 
-=======
 	stanimabar.value = stanima_current
 	healthbar.value = current_health
 	# Idle
 	if ap.current_animation == "":
 		ap.play("Idle1")
->>>>>>> 9d1ac263696d885e4b5cb26c245d09811db1843f
 	if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
 		return
 	mouse_motion = mouse_motion.lerp(target_mouse_motion, mouse_smoothing_speed * delta)
 	# camera_rotation()
 	camera_rotation()
 
-<<<<<<< HEAD
-	
-=======
 	# Gravity & falling
 	if not is_on_floor():
 		if velocity.y >= 0:
@@ -198,7 +162,6 @@ func _physics_process(delta: float) -> void:
 		if !Input.is_action_pressed("sprint"):
 			movement_speed = 5
 		is_crouching = false
->>>>>>> 9d1ac263696d885e4b5cb26c245d09811db1843f
 	# OnDied!
 	#if current_health == 0:
 	#	diedscreen.died()
@@ -207,11 +170,9 @@ func _physics_process(delta: float) -> void:
 	#else: 
 	#	diedscreen.visible = false
 		
-<<<<<<< HEAD
 	
 	check_is_dead()
 
-=======
 	# Sprint and stanima
 	if stanima_current != 0: 
 		if !Input.is_action_pressed("crouch") and Input.is_action_pressed("sprint") and !is_crouching:
@@ -261,25 +222,19 @@ func _physics_process(delta: float) -> void:
 
 	if not was_on_floor and is_on_floor():
 		jump_buffered = false
-		
->>>>>>> 9d1ac263696d885e4b5cb26c245d09811db1843f
 
 	was_on_floor = is_on_floor()
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		target_mouse_motion = -event.relative * mouse_sensitivity
-<<<<<<< HEAD
 
-		
-=======
 	var t = 0
 	if t == 0 and Input.is_action_pressed("crouch"):
 		ap.play("CrouchDown", -1, 0.5)
 		await ap.animation_finished
 	elif Input.is_action_just_released("crouch"):
 		ap.play_backwards("CrouchDown")
->>>>>>> 9d1ac263696d885e4b5cb26c245d09811db1843f
 #		if event.pressed:
 #			ap.play("combat_fist")
 
@@ -287,7 +242,6 @@ func _input(event: InputEvent) -> void:
 # Suppose to handle death screen.
 # TODO! Fix the you died screen.
 func _process(delta: float) -> void:
-<<<<<<< HEAD
 	pass
 	#if Input.is_action_just_pressed("mouse_release"):
 		#Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -303,12 +257,9 @@ func stamina_rebuild():
 		stamina_current = stamina_max
 	elif stamina_current < -1:
 		stamina_current = 0
-=======
 	stanima_rebuild()
 	#var diedpos : Vector3
 	#var did_died : bool
-
->>>>>>> 9d1ac263696d885e4b5cb26c245d09811db1843f
 
 # Nothing...
 func camera_rotation() -> void:
@@ -352,15 +303,9 @@ func _on_kill_plsettings() -> void:
 	var c = $MobileUi/PanelContainer
 	c.visible = false
 
-
-<<<<<<< HEAD
-
-
-=======
 func stanima_rebuild(): 
 	if stanima_current != stanima_max and !Input.is_action_pressed("sprint"):
 		stanimabar.value += 5
->>>>>>> 9d1ac263696d885e4b5cb26c245d09811db1843f
 func delay(sec : float):
 	var t = get_tree().create_timer(sec)
 	await t.timeout
@@ -382,14 +327,12 @@ var was_dead : bool = false
 
 func check_is_dead():
 
-<<<<<<< HEAD
 
 		#camera_3d.position = lerp(Vector3(7, 8, 9), Vector3(0, 1.37787, -0)
 		
 		#diedpos = camera_3d.positio
 		
-	if current_health < 20:
-=======
+	#if current_health < 20:
 	if current_health <= 0 and was_dead == false:
 		if perma_death == true:
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -422,13 +365,11 @@ func check_is_dead():
 		
 		#diedpos = camera_3d.position
 	elif current_health < 20:
->>>>>>> 9d1ac263696d885e4b5cb26c245d09811db1843f
 		on_low_health_threshold.emit()
 		camera_3d.fov = 60
 		camera_3d.position = (Vector3(randf_range(-0.05,0.05), randf_range(-0.05,0.05), 0) + Vector3(0, 1.37787, -0.29387))
 	elif current_health == 100 and was_dead == true:
 		pass
-<<<<<<< HEAD
 
 
 func _on_staminabar_changed() -> void:
@@ -437,10 +378,9 @@ func _on_staminabar_changed() -> void:
 
 func _on_staminabar_value_changed(value: float) -> void:
 	pass # Replace with function body.
-=======
-	else: 
-		movement_speed = 5.0
-		diedscreen.visible = false
+	#else: 
+		#movement_speed = 5.0
+		#diedscreen.visible = false
 
 func respawn():
 	if was_dead == true:
@@ -454,4 +394,3 @@ func respawn():
 		camera_3d.fov = lerp(20.0, start_fov, 0.05)
 		camera_3d.position = camera_3d.position.lerp(cameraStartPos, 1.0)
 		was_dead = false
->>>>>>> 9d1ac263696d885e4b5cb26c245d09811db1843f

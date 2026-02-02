@@ -33,4 +33,3 @@ func physics_update(delta: float) -> void:
 	elif Input.is_action_pressed("crouch"):
 		if !ray_cast_3d.is_colliding():
 			finished.emit(CROUCH)
-

@@ -1,16 +1,9 @@
-<<<<<<< HEAD
-[gd_scene load_steps=12 format=3 uid="uid://hjyd1yu5ficr"]
-=======
-[gd_scene load_steps=11 format=3 uid="uid://hjyd1yu5ficr"]
->>>>>>> 9d1ac263696d885e4b5cb26c245d09811db1843f
+[gd_scene format=3 uid="uid://byre6ppuwf50x"]
 
 [ext_resource type="Script" uid="uid://b0nt03vf770do" path="res://UI/scripts/main_menu.gd" id="1_ne5gk"]
 [ext_resource type="Script" uid="uid://8u72n6rr6i2b" path="res://UI/scripts/button_panel_menu_main.gd" id="2_em8oq"]
 [ext_resource type="Theme" uid="uid://nd1oq4ue7ubn" path="res://MainTheme.tres" id="3_em8oq"]
-<<<<<<< HEAD
 [ext_resource type="Script" uid="uid://d4fu5q75wlab0" path="res://UI/settings_window.gd" id="4_j0q2s"]
-=======
->>>>>>> 9d1ac263696d885e4b5cb26c245d09811db1843f
 [ext_resource type="Environment" uid="uid://dcod41koxlfcm" path="res://assets/mainmenu.env.tresa.tres" id="4_urvjm"]
 [ext_resource type="AudioStream" uid="uid://c8fxjo6dlyw4q" path="res://assets/decompress .mp3" id="5_5iw7r"]
 
@@ -34,22 +27,14 @@ corner_detail = 20
 resource_name = "Loop Audio"
 script/source = "extends AudioStreamPlayer
 
-# This is here because i cannot reimport
-# the audio file to make it loopable.
-# My editor (Xogot) requires a paid 
-# subscription to do so.
-# You can safely disregard the file.
-# - XiLy
-
 func _ready() -> void:
 	self.play()
-
 
 func _on_finished() -> void:
 	self.play(0.0)
 "
 
-[node name="Main Menu" type="Control"]
+[node name="Main Menu" type="Control" unique_id=939390382]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -58,7 +43,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ne5gk")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=580446798]
 visible = false
 z_index = -5
 layout_mode = 1
@@ -70,7 +55,7 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0.462745, 0.764706, 0.945098, 1)
 
-[node name="HeaderBar" type="Panel" parent="."]
+[node name="HeaderBar" type="Panel" parent="." unique_id=2002434947]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 5
@@ -82,7 +67,7 @@ offset_right = 122.0
 offset_bottom = 90.0
 grow_horizontal = 2
 
-[node name="TItle" type="Label" parent="HeaderBar"]
+[node name="TItle" type="Label" parent="HeaderBar" unique_id=1541767263]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -92,7 +77,7 @@ grow_vertical = 2
 text = "Moxira"
 label_settings = SubResource("LabelSettings_urvjm")
 
-[node name="ButtonPanelMenuMain" type="Panel" parent="."]
+[node name="ButtonPanelMenuMain" type="Panel" parent="." unique_id=494843558]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = -1
@@ -106,7 +91,7 @@ grow_vertical = 2
 script = ExtResource("2_em8oq")
 metadata/_edit_use_anchors_ = true
 
-[node name="ScrollContainer" type="ScrollContainer" parent="ButtonPanelMenuMain"]
+[node name="ScrollContainer" type="ScrollContainer" parent="ButtonPanelMenuMain" unique_id=1393214878]
 layout_mode = 0
 offset_left = -189.0
 offset_top = -51.0
@@ -114,22 +99,20 @@ offset_right = -5.0
 offset_bottom = 341.0
 follow_focus = true
 draw_focus_border = true
-scroll_horizontal_custom_step = -313.508
-scroll_vertical_custom_step = -366.431
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ButtonPanelMenuMain/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ButtonPanelMenuMain/ScrollContainer" unique_id=1755423528]
 layout_mode = 2
 theme = ExtResource("3_em8oq")
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="PlayButton" type="Button" parent="ButtonPanelMenuMain/ScrollContainer/VBoxContainer"]
+[node name="PlayButton" type="Button" parent="ButtonPanelMenuMain/ScrollContainer/VBoxContainer" unique_id=1119753986]
 custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Play"
 
-[node name="ShowSaveDir" type="Button" parent="ButtonPanelMenuMain/ScrollContainer/VBoxContainer"]
+[node name="ShowSaveDir" type="Button" parent="ButtonPanelMenuMain/ScrollContainer/VBoxContainer" unique_id=13254874]
 custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
 theme = ExtResource("3_em8oq")
@@ -137,50 +120,42 @@ theme_override_font_sizes/font_size = 24
 disabled = true
 text = "Show Save Dir"
 
-[node name="Settings" type="Button" parent="ButtonPanelMenuMain/ScrollContainer/VBoxContainer"]
+[node name="Settings" type="Button" parent="ButtonPanelMenuMain/ScrollContainer/VBoxContainer" unique_id=1709552635]
 custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-text = "Settings
-"
+text = "Settings"
 
-[node name="Quit" type="Button" parent="ButtonPanelMenuMain/ScrollContainer/VBoxContainer"]
+[node name="Quit" type="Button" parent="ButtonPanelMenuMain/ScrollContainer/VBoxContainer" unique_id=1588460493]
 custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-text = "Quit
-"
+text = "Quit"
 
-[node name="ButtonContent" type="Panel" parent="."]
+[node name="ButtonContent" type="Panel" parent="." unique_id=212364610]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.394097
 anchor_top = 0.209877
 anchor_right = 0.988715
 anchor_bottom = 0.955247
-offset_left = 1.52588e-05
-offset_right = -1.52588e-05
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_em8oq")
 metadata/_edit_use_anchors_ = true
 
-[node name="ScrollContainer" type="ScrollContainer" parent="ButtonContent"]
+[node name="ScrollContainer" type="ScrollContainer" parent="ButtonContent" unique_id=702492812]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -33.0
-offset_top = 214.0
-offset_right = -33.0
-offset_bottom = 214.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Content" type="Control" parent="ButtonContent/ScrollContainer"]
+[node name="Content" type="Control" parent="ButtonContent/ScrollContainer" unique_id=1456717681]
 layout_mode = 2
 
-[node name="SettingsWindow" type="Window" parent="."]
+[node name="SettingsWindow" type="Window" parent="." unique_id=1075531914]
 unique_name_in_owner = true
 title = "Settings"
 initial_position = 2
@@ -190,56 +165,45 @@ wrap_controls = true
 unresizable = true
 sharp_corners = true
 theme = ExtResource("3_em8oq")
-<<<<<<< HEAD
 script = ExtResource("4_j0q2s")
-=======
->>>>>>> 9d1ac263696d885e4b5cb26c245d09811db1843f
 
-[node name="VScrollBar" type="VScrollBar" parent="SettingsWindow"]
+[node name="VScrollBar" type="VScrollBar" parent="SettingsWindow" unique_id=139406586]
 offset_right = 8.0
 offset_bottom = 8.0
 
-[node name="ScrollContainer" type="ScrollContainer" parent="SettingsWindow"]
+[node name="ScrollContainer" type="ScrollContainer" parent="SettingsWindow" unique_id=979952678]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="SettingsWindow/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsWindow/ScrollContainer" unique_id=392568726]
 layout_mode = 2
 
-<<<<<<< HEAD
-[node name="CheckButton" type="CheckButton" parent="SettingsWindow/ScrollContainer/VBoxContainer"]
+[node name="CheckButton" type="CheckButton" parent="SettingsWindow/ScrollContainer/VBoxContainer" unique_id=2029131560]
 layout_mode = 2
 text = "Post-Processing Effects"
 
-=======
->>>>>>> 9d1ac263696d885e4b5cb26c245d09811db1843f
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1536605410]
 transform = Transform3D(1, 0, 0, 0, 0.286892, 0.957963, 0, -0.957963, 0.286893, 0, 0, 0.0152702)
 
-[node name="Node3D" type="Node3D" parent="."]
+[node name="Node3D" type="Node3D" parent="." unique_id=1486005445]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.93388, 0, 0)
 
-[node name="BoxMesh" type="MeshInstance3D" parent="Node3D"]
+[node name="BoxMesh" type="MeshInstance3D" parent="Node3D" unique_id=868303608]
 transform = Transform3D(38.1222, 0, 0, 0, 1, 0, 0, 0, 24.08, 0, -1.88961, 0)
 mesh = SubResource("BoxMesh_em8oq")
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="." unique_id=338700173]
 environment = ExtResource("4_urvjm")
 current = true
 
-<<<<<<< HEAD
-[node name="WE" type="WorldEnvironment" parent="Camera3D"]
-unique_name_in_owner = true
-=======
-[node name="WorldEnvironment" type="WorldEnvironment" parent="Camera3D"]
->>>>>>> 9d1ac263696d885e4b5cb26c245d09811db1843f
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Camera3D" unique_id=195455705]
 environment = ExtResource("4_urvjm")
 compositor = SubResource("Compositor_5iw7r")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Camera3D"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Camera3D" unique_id=614796999]
 stream = ExtResource("5_5iw7r")
 script = SubResource("GDScript_j0q2s")
 
@@ -248,8 +212,5 @@ script = SubResource("GDScript_j0q2s")
 [connection signal="pressed" from="ButtonPanelMenuMain/ScrollContainer/VBoxContainer/Settings" to="ButtonPanelMenuMain" method="_on_settings_pressed"]
 [connection signal="pressed" from="ButtonPanelMenuMain/ScrollContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="close_requested" from="SettingsWindow" to="ButtonPanelMenuMain" method="_on_settings_window_close_requested"]
-<<<<<<< HEAD
 [connection signal="toggled" from="SettingsWindow/ScrollContainer/VBoxContainer/CheckButton" to="SettingsWindow" method="_on_check_button_toggled"]
-=======
->>>>>>> 9d1ac263696d885e4b5cb26c245d09811db1843f
 [connection signal="finished" from="Camera3D/AudioStreamPlayer" to="Camera3D/AudioStreamPlayer" method="_on_finished"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dt7ubr5hawi35"]
+[gd_scene format=3 uid="uid://dt7ubr5hawi35"]
 
 [ext_resource type="Script" uid="uid://bdoeb8lnk3bx4" path="res://Entities/Zombies/zombie_1.gd" id="1_n1gil"]
 
@@ -10,22 +10,22 @@ size = Vector3(1, 2.21802, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_qawwo"]
 size = Vector3(3.22168, 2.86157, 3.0466)
 
-[node name="Zombie1" type="CharacterBody3D"]
+[node name="Zombie1" type="CharacterBody3D" unique_id=1671790828]
 script = ExtResource("1_n1gil")
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=1375370031]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=301281080]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0350342, 0)
 shape = SubResource("BoxShape3D_n1gil")
 
-[node name="BoxMesh" type="MeshInstance3D" parent="."]
+[node name="BoxMesh" type="MeshInstance3D" parent="." unique_id=604928785]
 transform = Transform3D(-0.00352293, 1.17774, 0, -0.21223, -0.0195501, 0, 0, 0, 0.354574, -0.461992, 0.795037, 0.031265)
 mesh = SubResource("BoxMesh_n1gil")
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="Area3D" type="Area3D" parent="." unique_id=1126262472]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1253387816]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0131836, 0.206421, 0.0393524)
 shape = SubResource("BoxShape3D_qawwo")
 

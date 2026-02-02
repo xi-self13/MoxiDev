@@ -1,11 +1,4 @@
-<<<<<<< HEAD
-[gd_scene load_steps=9 format=3 uid="uid://gvoyffts6jn6"]
-
-[ext_resource type="PackedScene" uid="uid://cso1gt3072mb5" path="res://Entities/Player/player.tscn" id="1_ymirs"]
-[ext_resource type="PackedScene" uid="uid://dt7ubr5hawi35" path="res://Entities/Zombies/Zombie1.tscn" id="4_uo8pk"]
-
-=======
-[gd_scene load_steps=12 format=3 uid="uid://gvoyffts6jn6"]
+[gd_scene format=3 uid="uid://gvoyffts6jn6"]
 
 [ext_resource type="Environment" uid="uid://dcod41koxlfcm" path="res://assets/mainmenu.env.tresa.tres" id="1_xtyrc"]
 [ext_resource type="PackedScene" uid="uid://cso1gt3072mb5" path="res://Entities/Player/player.tscn" id="1_ymirs"]
@@ -16,20 +9,13 @@
 resource_name = "Sun"
 script/source = "extends DirectionalLight3D
 
-# TODO! Remove this file and make an actual time system T_T
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void: pass
-	#self.rotation += Vector3(3, 2, 4) / 5000
-	
+func _process(delta: float) -> void:
+	pass
 "
 
->>>>>>> 9d1ac263696d885e4b5cb26c245d09811db1843f
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_341mu"]
 metallic = 1.0
 metallic_specular = 1.0
@@ -56,18 +42,13 @@ size = Vector3(12.565, 1.71631, 11.6957)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_uo8pk"]
 
-[node name="Sandbox" type="Node3D"]
+[node name="Sandbox" type="Node3D" unique_id=436574905]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-<<<<<<< HEAD
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-=======
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1569104726]
 environment = ExtResource("1_xtyrc")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.680173, -0.101638, 0.379317, 0.350757, 0.183889, 0.678234, -0.176582, 0.756771, -0.113861, 0, 0, 0)
->>>>>>> 9d1ac263696d885e4b5cb26c245d09811db1843f
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=276067297]
+transform = Transform3D(-0.86602545, -0.12941036, 0.4829626, 0.44659886, 0.2341355, 0.8635566, -0.22483185, 0.96355253, -0.14497277, 0, 0, 0)
 light_energy = 0.915
 light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.0
@@ -75,63 +56,44 @@ light_specular = 5.688
 shadow_enabled = true
 shadow_bias = 3.851
 shadow_normal_bias = 10.0
-shadow_transmittance_bias = 0.0
-shadow_blur = 0.0
 directional_shadow_mode = 1
-directional_shadow_split_1 = 0.023
-directional_shadow_split_2 = 0.096
-directional_shadow_split_3 = 0.114
 directional_shadow_blend_splits = true
 directional_shadow_fade_start = 0.61
 directional_shadow_max_distance = 11.3
-directional_shadow_pancake_size = 0.0
-<<<<<<< HEAD
-=======
 script = SubResource("GDScript_341mu")
->>>>>>> 9d1ac263696d885e4b5cb26c245d09811db1843f
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1559596977]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=394379064]
 mesh = SubResource("PlaneMesh_ursbn")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1634682798]
 shape = SubResource("HeightMapShape3D_ymirs")
 
-[node name="Player" parent="." instance=ExtResource("1_ymirs")]
-<<<<<<< HEAD
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.618409, 0)
-=======
+[node name="Player" parent="." unique_id=1628803738 instance=ExtResource("1_ymirs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
-[node name="WorldEnvironment2" type="WorldEnvironment" parent="."]
->>>>>>> 9d1ac263696d885e4b5cb26c245d09811db1843f
-
-[node name="Area3D" type="Area3D" parent="."]
+[node name="Area3D" type="Area3D" parent="." unique_id=1563919822]
 unique_name_in_owner = true
 transform = Transform3D(1.11846, 0, 0, 0, 1.11846, 0, 0, 0, 1.11846, 0, -26.847, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1268904605]
 transform = Transform3D(4.97115, 0, 0, 0, 4.97115, 0, 0, 0, 4.97115, 0.728004, -0.358154, 7.70057)
 shape = SubResource("BoxShape3D_ymirs")
 
-[node name="RigidBody3D" type="RigidBody3D" parent="."]
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=696965309]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.8539, 2.50968, 0)
 
-[node name="SphereMesh" type="MeshInstance3D" parent="RigidBody3D"]
+[node name="SphereMesh" type="MeshInstance3D" parent="RigidBody3D" unique_id=274333130]
 mesh = SubResource("SphereMesh_341mu")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=165095194]
 shape = SubResource("SphereShape3D_uo8pk")
 
-<<<<<<< HEAD
-=======
-[node name="Time" type="Node" parent="." node_paths=PackedStringArray("sun_node")]
+[node name="Time" type="Node" parent="." unique_id=664944437]
 script = ExtResource("3_341mu")
-sun_node = NodePath("../DirectionalLight3D")
 
->>>>>>> 9d1ac263696d885e4b5cb26c245d09811db1843f
-[node name="Zombie1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_uo8pk")]
+[node name="Zombie1" parent="." unique_id=45680879 node_paths=PackedStringArray("target") instance=ExtResource("4_uo8pk")]
 transform = Transform3D(0.574991, 0, 0.81816, 0, 1, 0, -0.81816, 0, 0.574991, 0, 1.18112, -17.3707)
 target = NodePath("../Player")
 

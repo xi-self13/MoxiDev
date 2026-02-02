@@ -3,7 +3,6 @@ extends Node
 # note to Freewave, set this as a global as my editor (Xogot) cannot perform this action due to payment.
 # - XiLy
 @export_category("Sun Properties")
-<<<<<<< HEAD
 @export var ticks_per_second: float = 60.0 ## 1 tick = 1 second in real life
 
 enum Weather { NORMAL, RAINY, STORMY }
@@ -98,9 +97,6 @@ func update_weather_effects():
 				rain_node.visible = true
 				rain_node.rain_intensity = 2.0  # Heavier rain for storm
 
-
-
-
 func _process(delta: float) -> void:
 	if sun_node:
 		var t = time_repeat(delta)
@@ -109,9 +105,7 @@ func _process(delta: float) -> void:
 			weather_timer = 0.0
 			change_weather()
 		update_weather_effects()
-=======
 @export var time_speed : int = 5000
-@export var sun_node : DirectionalLight3D
 
 var current_time : float
 #func GetDirectionalLightNode():
@@ -152,15 +146,4 @@ func start_day_night(timespeed : float):
 	return v
 
 
-@onready var g = $Label3D
-
-func time_repeat(delta : float):
-	current_time += 3.0 * delta
-	if current_time == 24.0:
-		current_time -= 24.0
-
-
-func _process(delta: float) -> void:
-	var _r = start_day_night(1000)
-	var t = time_repeat(delta)
->>>>>>> 9d1ac263696d885e4b5cb26c245d09811db1843f
+#@onready var g = $Label3D

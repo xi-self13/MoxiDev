@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://ig6os7vu8cal"]
+[gd_scene format=3 uid="uid://ig6os7vu8cal"]
 
 [ext_resource type="Script" uid="uid://dwv5p3ephbms7" path="res://UI/scripts/chat_panel.gd" id="1_s4k4u"]
 [ext_resource type="Theme" uid="uid://c6kfohpuvyxhm" path="res://assets/DefaultSweetAndOldTheme.tres" id="2_rr71g"]
@@ -6,35 +6,26 @@
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_rx27s"]
 
-[node name="ChatPanel" type="Control"]
-<<<<<<< HEAD
+[node name="ChatPanel" type="Control" unique_id=1844763020]
 z_index = 2
-=======
->>>>>>> 9d1ac263696d885e4b5cb26c245d09811db1843f
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-<<<<<<< HEAD
 mouse_filter = 2
 script = ExtResource("1_s4k4u")
 
-[node name="ChatInput" type="LineEdit" parent="."]
+[node name="ChatInput" type="LineEdit" parent="." unique_id=149533278]
 z_index = 2
-=======
-script = ExtResource("1_s4k4u")
-
-[node name="ChatInput" type="LineEdit" parent="."]
->>>>>>> 9d1ac263696d885e4b5cb26c245d09811db1843f
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 0.0941358
 placeholder_text = "Chat and run commands"
 metadata/_edit_use_anchors_ = true
 
-[node name="ChatOutput" type="RichTextLabel" parent="."]
+[node name="ChatOutput" type="RichTextLabel" parent="." unique_id=11740498]
 material = SubResource("CanvasItemMaterial_rx27s")
 layout_mode = 1
 anchors_preset = -1
@@ -48,13 +39,9 @@ bbcode_enabled = true
 scroll_following = true
 metadata/_edit_use_anchors_ = true
 
-[node name="Bye" type="Button" parent="."]
-<<<<<<< HEAD
+[node name="Bye" type="Button" parent="." unique_id=1687550899]
 layout_mode = 1
 anchors_preset = -1
-=======
-layout_mode = 0
->>>>>>> 9d1ac263696d885e4b5cb26c245d09811db1843f
 anchor_left = 0.892361
 anchor_top = 0.185185
 anchor_right = 0.991319
@@ -62,12 +49,9 @@ anchor_bottom = 0.958333
 offset_right = 3.05176e-05
 offset_bottom = 1.28746e-05
 text = "Close"
-<<<<<<< HEAD
-=======
 metadata/_edit_use_anchors_ = true
->>>>>>> 9d1ac263696d885e4b5cb26c245d09811db1843f
 
-[node name="Effects" type="Node" parent="."]
+[node name="Effects" type="Node" parent="." unique_id=1467349774]
 script = ExtResource("3_rx27s")
 metadata/_custom_type_script = "uid://c183h2vqbdtu0"
 
